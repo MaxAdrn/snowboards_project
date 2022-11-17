@@ -49,9 +49,7 @@
                     </tr>
             </tbody>
         </table>
-        <form action="{{ path('checkout') }}" method="POST">
-                        <button type="submit" class="btn btn-primary mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
-                    </form>
+        
 
 
         <a href={{ path('commande_new',{panierData: panierData}) }} class="bouton">Valider le panier</a>
