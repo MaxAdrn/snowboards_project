@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/form_add_caract.css') }}">
+{% endblock %}
+
+{% block title %}Ajouter un type de shape{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>Ajouter un type de shape</h1>
+
+        {{ form_start(formShape) }}
+            {{ form_row(formShape.nom) }}
+            <input type="submit" value="Enregistrer" class="bouton">
+        {{ form_end(formShape) }}
+    </div>
+
+{% endblock %}

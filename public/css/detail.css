@@ -1,0 +1,7 @@
+.form-taille-stock form{
+    width: 50%;
+    display: flex;
+}
+.form-taille-stock form input{
+    margin: 0 1vw;
+}

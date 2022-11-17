@@ -1,0 +1,41 @@
+main {
+    color: white;
+}
+form {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.blockRowForm {
+    height: 15vh;
+}
+.blockRowForm div {
+    margin-bottom: 0rem !important;
+}
+
+a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: white;
+}
+a:hover {
+    color: var(--couleur2);
+}
+
+svg {
+    margin: 0 0.4vw;
+}
+.mb-3 {
+    width: 25vw !important;
+}
+
+input {
+    grid-column: 1 / 3;
+    width: 20%;
+    margin: auto;
+}
+
+label {
+    border-bottom: 1px solid var(--couleur2);
+}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/form_add_caract.css') }}">
+{% endblock %}
+
+{% block title %}Ajouter un genre{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>Ajouter un genre</h1>
+
+        {{ form_start(formGenre) }}
+            {{ form_row(formGenre.nom) }}
+            <input type="submit" value="Enregistrer" class="bouton">
+        {{ form_end(formGenre) }}
+    </div>
+
+{% endblock %}

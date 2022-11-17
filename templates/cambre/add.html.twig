@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/form_add_caract.css') }}">
+{% endblock %}
+
+{% block title %}Ajouter un type de cambre{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>Ajouter un type de cambre</h1>
+
+        {{ form_start(formCambre) }}
+            {{ form_row(formCambre.nom) }}
+            <input type="submit" value="Enregistrer" class="bouton">
+        {{ form_end(formCambre) }}
+    </div>
+
+{% endblock %}

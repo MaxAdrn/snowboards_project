@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+
+    {% block link %}
+
+    {% endblock %}
+
+    <title>
+    {% block title %}
+        Snowboards Area
+    {% endblock %}
+    </title>
+
+</head>
+
+<body>
+{% block body %}
+
+    <header>
+
+        <nav>
+            <a href="{{ path('home') }}" id="logo"><img id="logoimg" src="{{ asset("images/logo.svg") }}" alt="Logo Snow Rider's Area"></a>
+            <div id="menu">
+
+                <button id="bouton_menu">
+                    <img src="{{ asset("images/menu_burger.png") }}" alt="menu">
+                </button>
+
+                <ul class="menu_section">
+                    <a href="{{ path('snowboards_index') }}" id="menu_snowboards">
+                        <li>Tous les snowboards</li>
+                    </a>
+                    <a href="" id="menu_spltboard">
+                        <li>Splitboard</li>
+                    </a>
+                    <a href="" id="menu_polyfreeride">
+                        <li>Polyvalent freeride</li>
+                    </a>
+                    <a href="" id="menu_freeride">
+                        <li>Freeride</li>
+                    </a>
+                    <a href="" id="menu_polyfreestyle">
+                        <li>Polyvalent freestyle</li>
+                    </a>
+                    <a href="" id="menu_freestyle">
+                        <li>Freestyle</li>
+                    </a>
+                    <a href="" id="menu_carving">
+                        <li>Carving</li>
+                    </a>
+                    <a href="" id="menu_poudreuse">
+                        <li>100% poudreuse</li>
+                    </a>
+                </ul>
+            </div>
+            <div class="navicone compte">
+                <button id="bouton_compte">
+                    <img src="{{ asset("images/account_circle.svg") }}" alt="compte">
+                    <p>Compte</p>
+                </button>
+                {% if app.user %}
+                    <ul class="liens-compte">
+                        <a href="{{ path('user_detail', { id: app.user.id }) }}">
+                            <li>Mon profil</li>
+                        </a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('admin') }}">
+                                <li>Espace admin</li>
+                            </a>
+                        {% endif %}
+                        <a href="{{ path('app_logout') }}" id="deconnexion">
+                            <li>Déconnexion</li>
+                        </a>
+                    </ul>
+                {% else %}
+                    <ul class="liens-compte">
+                        <a href="{{ path('app_login') }}" id="connexion">
+                            <li>Se connecter</li>
+                        </a>
+                        <a href="{{ path('register') }}">
+                            <li>S'inscrire</li>
+                        </a>
+                    </ul>
+                {% endif %}
+            </div>
+            <a href="{{ path('cart_index') }}" class="navicone panier"><img src="{{ asset("images/shopping_cart.svg") }}" alt="panier"><p>Panier</p></a>
+            <a href="" class="navicone aide"><img src="{{ asset("images/help.svg") }}" alt="aide"><p>Aide</p></a>
+        </nav>
+
+    </header>
+    
+
+    <main>
+        {% block main %}
+        
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy;Copyright - Mise à jour le 27/06/2022</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous">
+    </script>
+    <script src="{{ asset("javascript/base.js") }}"></script>
+    {% block javascripts %}
+    
+    {% endblock %}
+</body>
+ {% endblock %}   
+</html>

@@ -1,0 +1,13 @@
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    color: black;
+    margin-bottom: 5vh;
+}
+
+.card-title {
+    text-transform: uppercase;
+}

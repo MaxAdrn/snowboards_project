@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/user/detail.css') }}">
+{% endblock %}
+
+{% block title %}Profil utilisateur{% endblock %}
+
+{% block main %}
+    <h1>Profil personnel</h1>
+    <section>
+        <article>
+            <h3>Nom</h3>
+            <p>{{ user.nom }}</p>
+        </article>
+        <article>
+            <h3>Prénom</h3>
+            <p>{{ user.prenom }}</p>
+        </article>
+        <article>
+            <h3>Email</h3>
+            <p>{{ user.email }}</p>
+        </article>
+        <article>
+            <h3>Adresse</h3>
+            <p>{{ user.adresse }}</p>
+        </article>
+        <article>
+            <h3>Code postal</h3>
+            <p>{{ user.codePostal }}</p>
+        </article>
+        <article>
+            <h3>Ville</h3>
+            <p>{{ user.ville }}</p>
+        </article>
+        <article>
+            <h3>Créé le</h3>
+            <p>{{ user.createdAt|date("Y-m-d à H:i:s") }}</p>
+        </article>
+        <article>
+            <h3>Mis à jour le</h3>
+            <p>{% if user.updatedAt %}{{ user.updatedAt|date("Y-m-d à H:i:s") }}{% else %}-{% endif %}</p>
+        </article>
+    
+    {% if app.user.id == user.id %}
+    <a href="{{ path('user_update', { id: user.id }) }}" class="bouton">Modifier</a>
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('user_index') }}" class="bouton retour">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+            Retour
+        </a>
+        <a href="{{ path('user_delete', { id: user.id }) }}" class="bouton bouton-suppr" onclick="return confirm('Souhaitez-vous vraiment supprimer cet utilisateur ?')" >Supprimer l'utilisateur</a>
+    {% endif %}
+    </section>
+{% endblock %}

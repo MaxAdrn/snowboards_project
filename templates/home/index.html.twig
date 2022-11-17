@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset("css/home/home.css") }}">
+{% endblock %}
+
+{% block main %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('admin') }}" id="admin">Accéder à votre espace administrateur</a>
+    {% endif %}
+    <a href="{{ path('snowboards_index')}}">
+        <section id="section-snowboards">
+            <div class="titre_section"><h2>Snowboards</h2></div>
+        </section>
+    </a>
+    <a href="">
+        <section id="section-splitboard">
+            <div class="titre_section"><h2>Splitboard</h2></div>
+        </section>
+    </a>
+    <a href="">
+        <section id="section-polyfreeride">
+            <div class="titre_section"><h2>Polyvalent freeride</h2></div>
+        </section>
+    </a>
+    <a href="">
+        <section id="section-freeride">
+            <div class="titre_section"><h2>Freeride</h2></div>
+        </section>
+    </a>
+    <a href="">
+        <section id="section-polyfreestyle">
+            <div class="titre_section"><h2>Polyvalent freestyle</h2></div>
+        </section>
+    </a>
+    <a href="">
+        <section id="section-freestyle">
+            <div class="titre_section"><h2>Freestyle</h2></div>
+        </section>
+    </a>
+    <a href="">
+        <section id="section-carving">
+            <div class="titre_section"><h2>Carving</h2></div>
+        </section>
+    </a>
+    <a href="">
+        <section id="section-poudreuse">
+            <div class="titre_section"><h2>100% poudreuse</h2></div>
+        </section>
+    </a>
+
+{% endblock %}

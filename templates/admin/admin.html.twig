@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/home/admin.css') }}">
+{% endblock %}
+
+{% block title %}Espace administrateur{% endblock %}
+
+{% block main %}
+    
+        <h1>Espace administrateur</h1>
+        <section>
+            <h3>Gérer les utilisateurs : </h3>
+            <a href="{{ path('user_index') }}" class="bouton">Accéder à l'espace utilisateurs</a>
+        </section>
+        <section>
+            <h3>Gérer les snowboards : </h3>
+            <a href="{{ path('admin_snowboards') }}" class="bouton">Accéder à l'espace snowboards</a>
+        </section>
+
+{% endblock %}

@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+
+:root
+{
+    --couleur1: rgb(40, 40, 40);
+    --couleur2: rgb(8, 248, 241);
+    --couleur3: rgb(220, 220, 220);
+    --hfShadow: 0 0 10px 6px var(--couleur1);
+}
+
+*
+{
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+body
+{
+    background-color: var(--couleur3);
+    background-attachment: fixed;
+    background-image: url("../images/fond2.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-width: 500px) {
+    header {
+        background: var(--couleur1);
+        border-bottom: 0.5vh solid var(--couleur2);
+        padding: 1vh 1vw;
+        box-shadow: var(--hfShadow);
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: 20% 10% 10% 20% 10% 10% 10% 10%;
+        grid-template-rows: 15vh;
+        text-transform: uppercase;
+    }
+    .navicone {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+    
+    nav a {
+        grid-row-start: 1;
+        color: white;
+        text-decoration: none;
+    }
+
+    nav a:hover {
+        color: var(--couleur2);
+        transform: scale(1.1);
+    }
+
+    .navicone img {
+        height: 5vh;
+    }
+    
+    nav p {
+        margin: 0;
+    }
+
+    #logo {
+        grid-column: 4;
+        margin: auto;
+        padding-top: 0.5vh;
+        transform: none;
+    }
+
+    #logoimg {
+        min-height: 15vh;
+    }
+
+    .compte {
+        grid-column: 8;
+    }
+
+    .panier {
+        grid-column: 7;
+    }
+
+    .aide {
+        grid-column: 6;
+    }
+    
+    #menu {
+        grid-column: 1;
+        margin: auto;
+    }
+    #menu:hover #bouton_menu {
+        transform: scale(1.1);
+    }
+
+    #bouton_menu {
+        background-color: var(--couleur1);
+        border: none;
+    }
+    
+    #bouton_menu img {
+        height: 5vh;
+    }    
+}
+#bouton_compte {
+    
+    background-color: var(--couleur1);
+    border: none;
+    text-transform: uppercase;
+    color: white;
+}
+#deconnexion {
+    color: red;
+}
+#connexion {
+    color: limegreen;
+}
+
+.liens-compte {
+    overflow: hidden;
+    position: absolute;
+    top: 17vh;
+    right: 0vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 0.5vh solid var(--couleur2);
+    border-left: 0.5vh solid var(--couleur2);
+    border-top: 0.5vh solid rgb(8, 248, 241, .2);
+    box-shadow: var(--hfShadow);
+    transform: scale(0);
+    background-color: rgb(42, 42, 42);
+}
+.compte:hover #bouton_compte {
+    color: var(--couleur2);
+    transform: scale(1.1);
+}
+.compte:hover .liens-compte {
+    transform: scale(1);
+    z-index: 1;
+}
+.liens-compte a {
+    width: 100%;
+    padding: 1vh 2vw;
+    border-bottom: 0.2vh solid rgb(8, 248, 241, .2);
+    margin: 0;
+}
+main
+{
+    width: 80%;
+    background-color: rgba(40, 40, 40, 0.9);
+    min-height: 73vh;
+    padding: 7vh 0;
+    color: white;
+}
+footer{
+    height: 10vh;
+    background: var(--couleur1);
+    border-top: 0.5vh solid var(--couleur2);
+    box-shadow: var(--hfShadow);
+}
+
+/*--------------------------------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+}
+h1 {
+    background-color: var(--couleur1);
+    width: fit-content;
+    padding: 1vh 1vw;
+    border-radius: 1vh;
+    border: 1px solid var(--couleur2);
+    font-family: 'Emblema One', cursive;
+    letter-spacing: 0.2rem;
+    text-shadow: 0px 0px 4px var(--couleur2);
+    font-size: 2rem;
+}
+h2{
+    font-size: 1.75rem;
+}
+h3{
+    font-size: 1.5rem;
+}
+form {
+    width: 80%;
+}
+table {
+    color: white !important;
+}
+label {
+    border-bottom: 1px solid var(--couleur2);
+    margin-bottom: 1vh;
+    color: var(--couleur2);
+}
+
+.menu_section {
+    width: 100%;
+    padding: 1vh 1vw;
+    position: absolute;
+    top: 17vh;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(42, 42, 42);
+    border-bottom: 0.5vh solid var(--couleur2);
+    border-top: 0.5vh solid rgb(8, 248, 241, .2);
+    box-shadow: var(--hfShadow);
+    z-index: 1;
+    transform: scale(0);
+}
+#menu:hover .menu_section{
+    transform: scale(1);
+}
+
+.visible {
+    transform: scale(1);
+}
+
+/****************************
+    BOUTONS
+****************************/
+.bouton {
+    border: 1px solid black;
+    border-radius: 0.25rem;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5vh 1vw;
+    margin : 0.5vh auto;
+    text-decoration: none;
+    color: black;
+    background-color: var(--couleur2);
+}
+.bouton:hover {
+    box-shadow: 0 0 5px 0px white;
+    border: 1px solid white;
+    border-color: white;
+    color: black;
+    transform: scale(1.05);
+}
+.bouton-suppr {
+    background-color: rgb(255, 6, 6) !important;
+}
+.bouton-suppr:hover {
+    color: white;
+}
+.bouton-icone {
+    padding: 0 0.5vw;
+    padding-bottom: 0.5vh;
+}
+
+@media screen and (max-width: 500px) {
+    header
+    {
+        background-color: var(--couleur1);
+        height : 15vh;
+        width: 100%;
+        border-bottom: 0.5vh solid var(--couleur2);
+    }
+    nav{
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+        grid-template-rows: 1vh 5vh 5vh 5vh;
+    }
+    nav p
+    {
+        transform: scale(0);
+    }
+    nav div
+    {
+        grid-column: 1;
+        grid-row: 3;
+    }
+    nav > a:nth-child(1){
+        grid-column: 2;
+        position: relative;
+        top: 3vh;
+    }
+    nav > a:nth-child(3){
+        grid-column: 3;
+        grid-row: 2;
+    }
+    nav > a:nth-child(4){
+        grid-column: 3;
+        grid-row: 3;
+    }
+    nav > a:nth-child(5){
+        grid-column: 3;
+        grid-row: 4;
+    }
+    nav a img{
+        height: 3vh;
+    }
+    #logo{
+        height: 10vh;
+    }
+    /* form {
+        transform: scale(0);
+    } */
+}
+
+/* nav form {
+        grid-column: 2 / 5;
+        margin: auto;
+    } */
+    /* input:nth-child(1) {
+        background: rgb(70, 70, 70);
+        width: 17vw;
+        padding: .5em ;
+        border: 2px solid var(--couleur2);
+        border-radius: 1em;
+        color: white;
+    }
+    input:nth-child(2) {
+        position: relative;
+        left: -2vw;
+        top: 0.6vh;
+        background: url("../images/picto/search.png") center no-repeat;
+        background-size: contain;
+        width: 1.5vw;
+        border: none;
+        border-radius: 1vh;
+    }
+    ::placeholder {
+        color: rgb(190, 190, 190);
+        padding: 0.5em;
+        font-style: italic;
+    } */
