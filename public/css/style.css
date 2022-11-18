@@ -71,12 +71,11 @@ body
     #logo {
         grid-column: 4;
         margin: auto;
-        padding-top: 0.5vh;
         transform: none;
     }
-
+    
     #logoimg {
-        min-height: 15vh;
+        height: 14vh;
     }
 
     .compte {

@@ -39,14 +39,193 @@ class SnowboardsRepository extends ServiceEntityRepository
         }
     }
 
-    public function orderByNom(): array
-   {
+    public function orderByNom()
+    {
        return $this->createQueryBuilder('s')
        ->groupBy('s.nom')
        ->getQuery()
         ->getResult()
        ;
-   }
+    }
+
+    public function findSplitboards() {
+
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsHomme()
+    {
+      return $this->createQueryBuilder('s')
+      ->where('s.programme = 2')
+      ->andWhere('s.genre = 1')
+      ->groupBy('s.nom')
+      ->getQuery()
+       ->getResult()
+      ;
+    }
+
+    public function findSplitboardsFemme()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.genre = 2')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsEnfant()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.genre = 3')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsCambreClassique()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.cambre = 1')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsCambreInverse()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.cambre = 2')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+    
+    public function findSplitboardsCambrePlat()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.cambre = 3')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsCambreW()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.cambre = 4')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsCambreRocker()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.cambre = 5')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsDebutant()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.niveau = 1')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsIntermediaire()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.niveau = 2')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsConfirme()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.niveau = 3')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsShapeTwin()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.shape = 1')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsShapeDirectionnel()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.shape = 2')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+    public function findSplitboardsShapeTwinDir()
+    {
+       return $this->createQueryBuilder('s')
+       ->where('s.programme = 2')
+       ->andWhere('s.shape = 3')
+       ->groupBy('s.nom')
+       ->getQuery()
+        ->getResult()
+       ;
+    }
+
+
+//    public function findOneByIdJoinedToCategory(int $productId): ?Snowboards
+//     {
+//         $entityManager = $this->getEntityManager();
+
+//         $query = $entityManager->createQuery(
+//             'SELECT s, p
+//             FROM App\Entity\Snowboards s
+//             INNER JOIN s.programme p
+//             WHERE p.nom = splitboard'
+//         )->setParameter('id', $productId);
+
+//         return $query->getOneOrNullResult();
+//     }
 
 //    /**
 //     * @return Snowboards[] Returns an array of Snowboards objects

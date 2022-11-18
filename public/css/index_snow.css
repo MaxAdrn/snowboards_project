@@ -1,6 +1,6 @@
 main {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 50% 50%;
 }
 
 .card {
@@ -10,4 +10,9 @@ main {
 
 .card-title {
     text-transform: uppercase;
+}
+
+h1 {
+    grid-column: 1 / 3;
+    margin-bottom: 5vh;
 }

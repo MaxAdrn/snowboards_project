@@ -17,4 +17,14 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+    /**
+     * @Route("/aide", name="aide")
+     */
+    public function aide(): Response
+    {
+        return $this->render('footer/aide.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
+
 }
