@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/add_snow.css') }}">
+{% endblock %}
+
+{% block title %}Modifier un snowboard{% endblock %}
+
+{% block main %}
+        <h1>Modifier un snowboard</h1>
+        {{ form_start(formSnowboards) }}
+        <section>
+            <h2>Caractéristiques technique</h2>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.cambre) }}
+                <a href="{{ path('cambre_add') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Ajouter un type de cambre
+                </a>
+            </div>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.marque) }}
+                <a href="{{ path('marque_add') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Ajouter une marque
+                </a>
+            </div>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.niveau) }}
+                <a href="{{ path('niveau_add') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Ajouter un niveau
+                </a>
+            </div>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.programme) }}
+                <a href="{{ path('programme_add') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Ajouter un programme
+                </a>
+            </div>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.shape) }}
+                <a href="{{ path('shape_add') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Ajouter un type de shape
+                </a>
+            </div>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.snowinsert) }}
+                <a href="{{ path('snowinsert_add') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Ajouter un type d'insert
+                </a>
+            </div>
+        </section>
+        <section>
+            <h2>Caractéristiques snowboard</h2>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.nom) }}
+            </div>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.prix) }}
+            </div>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.genre) }}
+            </div>
+            <div class="blockRowForm">
+                {{ form_row( formSnowboards.imageFile ) }}
+            </div>
+
+            {{ form_row(formSnowboards.description) }}
+        </section>
+        <section>
+            <h2>Taille et stock</h2>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.taille) }}
+            </div>
+            <div class="blockRowForm">
+                {{ form_row(formSnowboards.stock) }}
+            </div>
+        </section>
+
+            <input type="submit" value="Enregistrer" class="bouton">
+        {{ form_end(formSnowboards) }}
+
+{% endblock %}

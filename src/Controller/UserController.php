@@ -16,17 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user", name="_index")
-     */
-    public function index(ManagerRegistry $doctrine)
-    {
-        $user = $doctrine->getRepository(User::class)->findAll();
-        return $this->render('user/index.html.twig', [
-            'user' => $user,
-        ]);
-    }
-
-    /**
      * @Route("/detail/{id}", name="_detail")
      */
     public function detail($id, ManagerRegistry $doctrine)
@@ -86,26 +75,6 @@ class UserController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/delete/{id}", name="_delete")
-     */
-    public function delete($id, ManagerRegistry $doctrine)
-    {
-        $user = $doctrine->getRepository(User::class)->find($id);
-
-        if(!$user)
-        {
-            throw new \Exception("Aucun utilisateur pour l'id : $id");
-        }
-
-        $em = $doctrine->getManager();
-        $em->remove($user);
-        $em->flush();
-
-        // $this->addFlash("users_delete_ok", "L'utilisateur ".$user->getName()."a bien été supprimé !");
-
-        return $this->redirectToRoute('user_index');
-    }
 
 
     // /**

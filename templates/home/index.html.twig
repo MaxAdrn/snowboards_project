@@ -1,14 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
-
 {% block link %}
     <link rel="stylesheet" href="{{ asset("css/home/home.css") }}">
 {% endblock %}
 
 {% block main %}
     {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('admin') }}" id="admin">Accéder à votre espace administrateur</a>
+        <a href="{{ path('admin_index') }}" id="admin">Accéder à votre espace administrateur</a>
     {% endif %}
     <a href="{{ path('snowboards_index')}}">
         <section id="section-snowboards">

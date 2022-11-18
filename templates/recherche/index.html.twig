@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche personnalisée{% endblock %}
+
+{% block main %}
+<section>
+    <h1>Recherche personnalisée</h1>
+{{ form(rechercheForm)}}
+</section>
+<section>
+    
+    {% for snow in snows %}
+        <div class="card" style="width: 18rem;">
+            {# <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" alt="{{ snowboard.imageName }}" class="card-img-top" max-height="100px"> #}
+            <div class="card-body">
+                <h5 class="card-title">{{ snow.nom }}</h5>
+                <p class="card-text">{{ snow.description|slice(0, 100) ~ '...' }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Marque : {{ snow.marque.nom }}</li>
+                <li class="list-group-item">Pour : {{ snow.niveau.nom }}</li>
+                <li class="list-group-item">Programme : {{ snow.programme.nom }}</li>
+                <li class="list-group-item">Taille : {{ snow.taille }}</li>
+                {# {% for snow in tailleStock %}
+                    {% if snow.snowboards.id == snowboard.id and snow.stock > 0 %}
+                    {% endif %}
+                {% endfor %} #}
+            </ul>
+            <div class="card-body">
+                <a href="{{ path('snowboards_showbyname', {slug: snow.nom}) }}" class="bouton">Détail</a>
+                {# <a href="{{ path('cart_add', {id: snowboard.id}) }}" class="card-link">Ajouter au panier</a> #}
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

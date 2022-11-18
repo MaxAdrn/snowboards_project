@@ -42,7 +42,7 @@
                     <a href="{{ path('snowboards_splitboards') }}" id="menu_splitboard">
                         <li>Splitboard</li>
                     </a>
-                    <a href="{{ path('snowboards_splitboards_femme') }}" id="menu_polyfreeride">
+                    <a href="#{#{{ path('') }}#}" id="menu_polyfreeride">
                         <li>Polyvalent freeride</li>
                     </a>
                     <a href="" id="menu_freeride">
@@ -73,7 +73,7 @@
                             <li>Mon profil</li>
                         </a>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('admin') }}">
+                            <a href="{{ path('admin_index') }}">
                                 <li>Espace admin</li>
                             </a>
                         {% endif %}

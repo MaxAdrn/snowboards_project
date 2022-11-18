@@ -1,15 +1,29 @@
 {% extends 'base.html.twig' %}
 {% block link %}
-    <link rel="stylesheet" href="{{ asset('css/index_snow.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/snowboards/index.css') }}">
 {% endblock %}
 {% block title %}Snowboards{% endblock %}
 
 {% block main %}
+    <a href="{{ path('recherche') }}" class="bouton">Effectuer une recherche personnalisée</a>
+    <h1>Tout les snowboards</h1>
 
-    {# <h1>Tout les snowboards</h1> #}
-
-    {% for snowboard in test %}
-        <div class="card" style="width: 18rem;">
+    {% for snowboard in filtre %}
+    <div class="fiche-produit">
+        <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" alt="{{ snowboard.imageName }}" class="">
+        <section>
+            <h4>{{ snowboard.nom }}</h4>
+            <article><h6>Marque : </h6><p>{{ snowboard.marque.nom }}</p></article>
+            <article><h6>Pour : </h6><p>{{ snowboard.genre.nom }}</p></article>
+            <article><h6>Niveau : </h6><p>{{ snowboard.niveau.nom }}</p></article>
+            <article><h6>Programme : </h6><p>{{ snowboard.programme.nom }}</p></article>
+            <article><h6>Cambre : </h6><p>{{ snowboard.cambre.nom }}</p></article>
+            <article><h6>Shape : </h6><p>{{ snowboard.shape.nom }}</p></article>
+            <article><h6>Insert : </h6><p>{{ snowboard.snowinsert.nom }}</p></article>
+            <a href="{{ path('snowboards_showbyname', {slug: snowboard.nom}) }}" class="bouton">Détail</a>
+        </section>
+    </div>
+        {# <div class="card" style="width: 18rem;">
             <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" alt="{{ snowboard.imageName }}" class="card-img-top" max-height="100px">
             <div class="card-body">
                 <h5 class="card-title">{{ snowboard.nom }}</h5>
@@ -19,16 +33,11 @@
                 <li class="list-group-item">Marque : {{ snowboard.marque.nom }}</li>
                 <li class="list-group-item">Pour : {{ snowboard.niveau.nom }}</li>
                 <li class="list-group-item">Programme : {{ snowboard.programme.nom }}</li>
-                {# {% for snow in tailleStock %}
-                    {% if snow.snowboards.id == snowboard.id and snow.stock > 0 %}
-                                <p>Tailles : {{ snow.taille }} cm | Stock : {{ snow.stock }}</p>
-                    {% endif %}
-                {% endfor %} #}
+                <li class="list-group-item">Taille : {{ snowboard.taille }}</li>
             </ul>
             <div class="card-body">
                 <a href="{{ path('snowboards_showbyname', {slug: snowboard.nom}) }}" class="bouton">Détail</a>
-                {# <a href="{{ path('cart_add', {id: snowboard.id}) }}" class="card-link">Ajouter au panier</a> #}
             </div>
-        </div>
+        </div> #}
     {% endfor %}
 {% endblock %}
