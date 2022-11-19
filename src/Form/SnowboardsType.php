@@ -92,14 +92,15 @@ class SnowboardsType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '2M',
+                        'maxSize' => '1M',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
+                            'image/webp',
                             'image/gif'
                         ],
-                        'maxSizeMessage' => 'Max 2Mo',
-                        'mimeTypesMessage' => 'jpeg ou png ou gif'
+                        'maxSizeMessage' => 'Max 1Mo',
+                        'mimeTypesMessage' => 'Format jpeg, png, gif ou webp requis'
                     ])
                 ]
             ])

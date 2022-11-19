@@ -80,7 +80,7 @@ h2 {
     color: white;
     letter-spacing: 0.2rem;
     text-shadow: 0px 0px 3px var(--couleur2);
-    font-size: 1.5rem;
+    font-size: 1.55vw;
 }
 
 main a:hover h2 {
@@ -88,44 +88,25 @@ main a:hover h2 {
     text-shadow: 0px 0px 1px white;
 }
 
-/***************************
-Bannniere 
-***************************/
-
-@keyframes banniere {
-    From {
-        height: 42vh;
-    }
-    
-    To {
-        height: 22vh;
-    }
-}
-@keyframes banniere_img {
-    From {
-        left: -75vw;
-    }
-    
-    To {
-        left: -20vw;
-    }
-}
 #banniere{
     z-index: -1;
     position: relative;
     max-height: 42vh;
     overflow: hidden;
     box-shadow: 0px 2px 10px 2px var(--couleur1);
-    /* animation-name: banniere;
-    animation-duration: 5s;
-    animation-timing-function: ease-in-out;
-    animation-delay: 2s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards; */
 }
 #banniere img{
     position: relative;
     left: -75vw;
     top: -8vh;
-    /* animation: banniere_img 45s linear 0.5s infinite alternate; */
+}
+
+@media screen and (max-width: 900px) {
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+    h2 {
+        font-size: 4vw;
+    }
 }

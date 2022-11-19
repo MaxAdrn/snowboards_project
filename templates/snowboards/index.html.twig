@@ -5,11 +5,11 @@
 {% block title %}Snowboards{% endblock %}
 
 {% block main %}
-    <a href="{{ path('recherche') }}" class="bouton">Effectuer une recherche personnalisée</a>
+    <a href="{{ path('recherche') }}" class="bouton">Recherche personnalisée</a>
     <h1>Tout les snowboards</h1>
 
     {% for snowboard in filtre %}
-    <div class="fiche-produit">
+    <div id="fiche-produit">
         <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" alt="{{ snowboard.imageName }}" class="">
         <section>
             <h4>{{ snowboard.nom }}</h4>
@@ -23,21 +23,5 @@
             <a href="{{ path('snowboards_showbyname', {slug: snowboard.nom}) }}" class="bouton">Détail</a>
         </section>
     </div>
-        {# <div class="card" style="width: 18rem;">
-            <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" alt="{{ snowboard.imageName }}" class="card-img-top" max-height="100px">
-            <div class="card-body">
-                <h5 class="card-title">{{ snowboard.nom }}</h5>
-                <p class="card-text">{{ snowboard.description|slice(0, 100) ~ '...' }}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Marque : {{ snowboard.marque.nom }}</li>
-                <li class="list-group-item">Pour : {{ snowboard.niveau.nom }}</li>
-                <li class="list-group-item">Programme : {{ snowboard.programme.nom }}</li>
-                <li class="list-group-item">Taille : {{ snowboard.taille }}</li>
-            </ul>
-            <div class="card-body">
-                <a href="{{ path('snowboards_showbyname', {slug: snowboard.nom}) }}" class="bouton">Détail</a>
-            </div>
-        </div> #}
     {% endfor %}
 {% endblock %}
