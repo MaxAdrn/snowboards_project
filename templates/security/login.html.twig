@@ -1,45 +1,37 @@
 {% extends 'base.html.twig' %}
-{% block link %}
-    <link rel="stylesheet" href="{{ asset('css/connexion.css') }}">
-{% endblock %}
+
 {% block title %}Connexion{% endblock %}
 
 {% block main %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">Erreur sur l'email ou le mot de passe. Veuillez réessayer.</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté via l'email : {{ app.user.userIdentifier }}<br><a href="{{ path('app_logout') }}" class="bouton">Se déconnecter</a>
+    {% for message in app.flashes('creation_panier') %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    {% endif %}
+    {% endfor %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <section>
+        <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+        <form method="post">
+            {% if error %}
+                <div class="alert alert-danger">Erreur sur l'email ou le mot de passe. Veuillez réessayer.</div>
+            {% endif %}
+            <label for="inputEmail">Email</label>
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="bouton" type="submit">
-        Se connecter
-    </button>
-    <a href="{{ path('app_forgot_password_request') }}" class="bouton">Mot de passe oublié</a>
-</form>
+            <button class="bouton" type="submit">
+                Se connecter
+            </button>
+        </form>
+        <a href="{{ path('app_forgot_password_request') }}" class="bouton">Mot de passe oublié</a>
+        <p>
+            Si vous souhaitez créer un compte, suivez ce lien :
+            <a href="{{ path('register') }}" class="bouton">Créer un compte</a>
+        </p>
+    </section>
+    
 {% endblock %}

@@ -1,4 +1,17 @@
-section, h6, p {
+.test {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 1vh auto;
+}
+p {
+    margin: 0.5vh 0;
+}
+.card {
+    height: 100%;
+    margin-bottom: 1vh;
+}
+/* section, h6, p {
     text-align: left;
 }
 
@@ -106,4 +119,4 @@ main a:nth-child(1) {
     h6 {
         color: var(--couleur2);
     }
-}
+} */

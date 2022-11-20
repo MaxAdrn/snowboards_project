@@ -181,6 +181,7 @@ footer{
 /*--------------------------------------------------------------------------------------*/
 h1, h2, h3 {
     text-transform: uppercase;
+    margin: 1vh auto;
 }
 h1 {
     background-color: var(--couleur1);

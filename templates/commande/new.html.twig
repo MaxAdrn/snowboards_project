@@ -3,7 +3,7 @@
 {% block title %}New Commande{% endblock %}
 
 {% block main %}
-    <h1>Create new Commande</h1>
+    <h1>Validation de la commande</h1>
 
     {{ form_start(formCommande) }}
 
@@ -22,7 +22,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nom</th>
-                    <th scope="col">Prix unitaire</th>
+                    <th scope="col">Prix unitaire / TTC</th>
                     <th scope="col">Quantité</th>
                     <th scope="col">Montant</th>
                 </tr>
@@ -33,7 +33,7 @@
                     <tr>
                         <th scope="row">{{ element.snowboards.id }}</th>
                         <td>{{ element.snowboards.nom }}</td>
-                        <td>{{ element.snowboards.prix|number_format(2, ',', ' ') ~ ' €' }}</td>
+                        <td>{{ element.snowboards.prix|number_format(2, ',', ' ') }} €</td>
                         <td>{{ element.quantite }}</td>
                         <td>{{ (element.snowboards.prix * element.quantite)|number_format(2, ',', ' ') }} €</td>
                        
@@ -45,7 +45,7 @@
                 {% endfor %}
 
                         <tr>
-                        <td colspan="6">Montant total : {{ montant }}</td>
+                        <td colspan="6">Montant total : {{ montant|number_format(2, ',', ' ') }} € / TTC</td>
                     </tr>
             
 
@@ -53,8 +53,8 @@
         </table>
         <a href="{{ path('cart_index') }}" class="bouton">Retour au panier</a>
         <form action="{{ path('checkout') }}" method="POST">
-                        <button type="submit" class="btn btn-primary mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
-                    </form>
+            <button type="submit" class="btn btn-primary mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
+        </form>
     </div>
 
 

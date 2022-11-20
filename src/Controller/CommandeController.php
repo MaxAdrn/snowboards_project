@@ -15,13 +15,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-// #[Route('/commande', name: "commande")]
 /**
  * @Route("/commande", name="commande")
  */
 class CommandeController extends AbstractController
 {
-    // #[Route('/', name: '_index', methods: ['GET'])]
     /**
      * @Route("/", name="_index")
      */
@@ -33,7 +31,6 @@ class CommandeController extends AbstractController
         ]);
     }
 
-    // #[Route('/new', name: '_new', methods: ['GET', 'POST'])]
     /**
      * @Route("/new", name="_new")
      */
@@ -96,8 +93,6 @@ class CommandeController extends AbstractController
         //************************************************************************************ */
 
                 #On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
-        
-
 
         //************************************************************************************ */
 
@@ -111,7 +106,6 @@ class CommandeController extends AbstractController
         ]);
     }
 
-    // #[Route('/show/{id}', name: '_show', methods: ['GET'])]
     /**
      * @Route("/show/{id}", name="_show")
      */
@@ -122,7 +116,6 @@ class CommandeController extends AbstractController
         ]);
     }
 
-    // #[Route('/edit/{id}', name: 'commande_edit', methods: ['GET', 'POST'])]
     /**
      * @Route("/edit/{id}", name="commande_edit")
      */
@@ -143,7 +136,6 @@ class CommandeController extends AbstractController
         ]);
     }
 
-    // #[Route('/delete/{id}', name: '_delete', methods: ['POST'])]
     /**
      * @Route("/delete/{id}", name="_delete")
      */

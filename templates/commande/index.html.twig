@@ -9,22 +9,26 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>AdresseLiv</th>
-                <th>AdresseFacturation</th>
-                <th>Montant</th>
-                <th>CreatedAt</th>
+                <th>Adressede livraison</th>
+                <th>Adresse de facturation</th>
+                <th>Produits</th>
+                <th>Montant TTC</th>
+                <th>Créé le</th>
             </tr>
         </thead>
         <tbody>
         {% for commande in commandes %}
-        {{ dump(commandes) }}
             <tr>
                 <td>{{ commande.id }}</td>
                 <td>{{ commande.adresseLiv }}</td>
                 <td>{{ commande.adresseFacturation }}</td>
+                <td>
+                {% for test in commande.detailCommande %}
+                    {{ test.nom }}</br>
+                {% endfor %}
+                </td>
                 <td>{{ commande.montant }} €</td>
-                {# <td>{{ commande.detailCommande.nom}}</td> #}
-                <td>{{ commande.createdAt ? commande.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ commande.createdAt|date('Y-m-d H:i:s') }}</td>
                 <td>
                     {# <a href="{{ path('commande_show', {'id': commande.id}) }}">show</a>
                     <a href="{{ path('commande_edit', {'id': commande.id}) }}">edit</a> #}
@@ -32,7 +36,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucune commande</td>
             </tr>
         {% endfor %}
         </tbody>

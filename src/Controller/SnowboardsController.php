@@ -21,11 +21,10 @@ class SnowboardsController extends AbstractController
      */
     public function index( SnowboardsRepository $snow)
     {
-        //je récupère tout les snowboards filtrer par nom pour eviter les doublons
-        $filtre = $snow->orderByNom();
+        $snowboards = $snow->findAll();
         //je les envois à la vue
         return $this->render('snowboards/index.html.twig', [
-            'filtre' => $filtre
+            'snowboards' => $snowboards
         ]);
     }
 
@@ -70,35 +69,15 @@ class SnowboardsController extends AbstractController
     }
 
     /**
-     * @Route("/show/{slug}", name="_showbyname")
-     */
-    public function showByName($slug, ManagerRegistry $doctrine)
-    {
-        // dd($slug);
-        $snowboards = $doctrine->getRepository(Snowboards::class)->findBy(['nom' => $slug]);
-        // dd($snowboards);
-
-            return $this->renderForm('snowboards/showbyname.html.twig', [
-                'snowboards' => $snowboards,
-            ]);
-    }  
-
-    /**
      * @Route("/detail/{id}", name="_detail")
      */
     public function show($id, ManagerRegistry $doctrine)
     {
         $snowboard = $doctrine->getRepository(Snowboards::class)->find($id);
 
-        if(!$snowboard) {
-            throw new \Exception("Aucun snowboard n'a été trouvé !");
-        }
-        else {
-
-            return $this->renderForm('snowboards/detail.html.twig', [
-                'snowboard' => $snowboard,
-            ]);
-        }
+        return $this->renderForm('snowboards/detail.html.twig', [
+            'snowboard' => $snowboard,
+        ]);
     }
 
     /**
