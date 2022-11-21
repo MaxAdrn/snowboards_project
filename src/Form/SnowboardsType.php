@@ -53,6 +53,12 @@ class SnowboardsType extends AbstractType
                 'class' => Cambre::class,
                 'choice_label' => 'nom'
             ])
+            ->add('niveau', EntityType::class, [
+                'placeholder' => 'Choisir un niveau',
+                'required' => false,
+                'class' => Niveau::class,
+                'choice_label' => 'nom'
+                ])
             ->add('marque', EntityType::class, [
                 'placeholder' => 'Choisir une marque',
                 'required' => false,
@@ -62,12 +68,6 @@ class SnowboardsType extends AbstractType
                     return $marque->createQueryBuilder('c')
                         ->orderBy('c.nom', 'ASC');
                 }
-            ])
-            ->add('niveau', EntityType::class, [
-                'placeholder' => 'Choisir un niveau',
-                'required' => false,
-                'class' => Niveau::class,
-                'choice_label' => 'nom'
             ])
             ->add('programme', EntityType::class, [
                 'placeholder' => 'Choisir le type de programme',

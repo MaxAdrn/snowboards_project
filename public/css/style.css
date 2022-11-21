@@ -163,15 +163,14 @@ button {
     border-bottom: 0.2vh solid rgb(8, 248, 241, .2);
     margin: 0;
 }
-main
-{
+main {
     width: 80%;
     background-color: rgba(40, 40, 40, 0.9);
     min-height: 73vh;
     padding: 5vh 0;
     color: white;
 }
-footer{
+footer {
     height: 10vh;
     background: var(--couleur1);
     border-top: 0.5vh solid var(--couleur2);
@@ -195,10 +194,10 @@ h1 {
     font-size: 2rem;
     text-align: center;
 }
-h2{
+h2 {
     font-size: 1.75rem;
 }
-h3{
+h3 {
     font-size: 1.5rem;
 }
 form {

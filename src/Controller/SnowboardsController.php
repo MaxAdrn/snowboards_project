@@ -8,8 +8,8 @@ use App\Repository\SnowboardsRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/snowboards", name="snowboards")
@@ -30,6 +30,7 @@ class SnowboardsController extends AbstractController
 
     /**
      * @Route("/add", name="_add")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function add( Request $request, ManagerRegistry $doctrine)
     {
@@ -60,7 +61,7 @@ class SnowboardsController extends AbstractController
             // $this->addFlash('snowboard_succes', "Votre snowboard a bien été ajoutée !");
 
             // redirection vers la page de gestion des snowboards des admins
-            return $this->redirectToRoute('snowboards_detail', ["id" => $snowboards->getId()]);
+            return $this->redirectToRoute('admin__snowboards');
         }
 
         return $this->renderForm('snowboards/add.html.twig', [
