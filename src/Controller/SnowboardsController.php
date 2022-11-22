@@ -21,6 +21,7 @@ class SnowboardsController extends AbstractController
      */
     public function index( SnowboardsRepository $snow)
     {
+        // je récupère tout les snowboards
         $snowboards = $snow->findAll();
         //je les envois à la vue
         return $this->render('snowboards/index.html.twig', [
@@ -37,7 +38,7 @@ class SnowboardsController extends AbstractController
         // création nouvel objet snowboards
         $snowboards = new Snowboards;
         
-        // création formulaire
+        // création formulaire pour l'ajout d'un snowboard
         $formSnowboards = $this->createForm(SnowboardsType::class, $snowboards);
 
         // traitement des données du formulaire
@@ -61,7 +62,7 @@ class SnowboardsController extends AbstractController
             // $this->addFlash('snowboard_succes', "Votre snowboard a bien été ajoutée !");
 
             // redirection vers la page de gestion des snowboards des admins
-            return $this->redirectToRoute('admin__snowboards');
+            return $this->redirectToRoute('admin_snowboards');
         }
 
         return $this->renderForm('snowboards/add.html.twig', [
@@ -76,7 +77,7 @@ class SnowboardsController extends AbstractController
     {
         $snowboard = $doctrine->getRepository(Snowboards::class)->find($id);
 
-        return $this->renderForm('snowboards/detail.html.twig', [
+        return $this->render('snowboards/detail.html.twig', [
             'snowboard' => $snowboard,
         ]);
     }
@@ -86,10 +87,10 @@ class SnowboardsController extends AbstractController
      */
     public function splitboards( SnowboardsRepository $snow)
     {
-        $filtre = $snow->findSplitboards();
+        $snowboards = $snow->findSplitboards();
 
         return $this->render('snowboards/index.html.twig', [
-            'filtre' => $filtre
+            'snowboards' => $snowboards
         ]);
     }
 }

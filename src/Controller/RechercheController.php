@@ -29,8 +29,8 @@ class RechercheController extends AbstractController
             $snows = $snowboardsRepo->recherchePerso($criteres);
         }
 
-        return $this->render('recherche/index.html.twig', [
-            'rechercheForm' => $rechercheForm->createView(),
+        return $this->renderForm('recherche/index.html.twig', [
+            'rechercheForm' => $rechercheForm,
             'snows' => $snows
         ]);
     }

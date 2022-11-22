@@ -60,7 +60,7 @@ class PanierController extends AbstractController
         else {
             $this->addFlash('creation_panier', "Vous devez vous connecter pour créer votre panier. Si vous n'avez pas de compte, vous pouvez le créer en cliquant sur le bouton \"Créer un compte\" ci-dessous");
 
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('app_login');
         }
     }
 

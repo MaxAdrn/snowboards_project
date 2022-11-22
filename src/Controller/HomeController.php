@@ -23,7 +23,7 @@ class HomeController extends AbstractController
     public function aide(): Response
     {
         
-        return $this->render('footer/aide.html.twig', [
+        return $this->render('home/aide.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }

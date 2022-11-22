@@ -12,7 +12,7 @@
 
     <section>
         <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
-        <form method="post">
+        <form method="post" style="width: 50%">
             {% if error %}
                 <div class="alert alert-danger">Erreur sur l'email ou le mot de passe. Veuillez réessayer.</div>
             {% endif %}
@@ -29,7 +29,7 @@
         </form>
         <a href="{{ path('app_forgot_password_request') }}" class="bouton">Mot de passe oublié</a>
         <p>
-            Si vous souhaitez créer un compte, suivez ce lien :
+            Si vous souhaitez créer un compte, suivez ce lien : </br>
             <a href="{{ path('register') }}" class="bouton">Créer un compte</a>
         </p>
     </section>

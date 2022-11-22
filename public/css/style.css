@@ -13,7 +13,7 @@
     list-style: none;
     text-decoration: none;
     scroll-behavior: smooth;
-    margin: 0 auto;
+    margin: auto auto;
     padding: 0;
     text-align: center;
     font-size: 16px;
@@ -31,6 +31,9 @@ body
 button {
     background: transparent;
     border: none;
+}
+main a {
+    margin: 10vh 1vw;
 }
 
 @media screen and (min-width: 900px) {
@@ -201,7 +204,7 @@ h3 {
     font-size: 1.5rem;
 }
 form {
-    width: 80%;
+    width: 50%;
 }
 table {
     color: white !important;
@@ -244,7 +247,7 @@ label {
     width: fit-content;
     height: fit-content;
     padding: 0.5vh 1vw;
-    margin : 0.5vh auto;
+    margin : 1vh 1vw;
     text-decoration: none;
     color: black;
     background-color: var(--couleur2);

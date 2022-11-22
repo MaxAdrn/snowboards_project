@@ -58,10 +58,10 @@ class ContactController extends AbstractController
             $mailer->send($email);
             $mailer->send($confirm);
 
+            $this->addFlash('email_envoyer', "Nous vous répondrons dans les plus bref délais.");
+
             return $this->redirectToRoute('contact');
         }
-
-        $this->addFlash('email_envoyer', "Nous vous répondrons dans les plus bref délais.");
 
         return $this->renderForm('contact/index.html.twig', [
             'formContact' => $formContact

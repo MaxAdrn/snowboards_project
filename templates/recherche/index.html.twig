@@ -1,37 +1,47 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Recherche personnalisée{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/snowboards/index.css') }}">
+{% endblock %}
+{% block title %}Snowboards{% endblock %}
 
 {% block main %}
-<section>
-    <h1>Recherche personnalisée</h1>
-{{ form(rechercheForm)}}
-</section>
-<section>
-    
-    {% for snow in snows %}
-        <div class="card" style="width: 18rem;">
-            {# <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" alt="{{ snowboard.imageName }}" class="card-img-top" max-height="100px"> #}
-            <div class="card-body">
-                <h5 class="card-title">{{ snow.nom }}</h5>
-                <p class="card-text">{{ snow.description|slice(0, 100) ~ '...' }}</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Marque : {{ snow.marque.nom }}</li>
-                <li class="list-group-item">Pour : {{ snow.niveau.nom }}</li>
-                <li class="list-group-item">Programme : {{ snow.programme.nom }}</li>
-                <li class="list-group-item">Taille : {{ snow.taille }}</li>
-                {# {% for snow in tailleStock %}
-                    {% if snow.snowboards.id == snowboard.id and snow.stock > 0 %}
-                    {% endif %}
-                {% endfor %} #}
-            </ul>
-            <div class="card-body">
-                <a href="{{ path('snowboards_showbyname', {slug: snow.nom}) }}" class="bouton">Détail</a>
-                {# <a href="{{ path('cart_add', {id: snowboard.id}) }}" class="card-link">Ajouter au panier</a> #}
-            </div>
-        </div>
-    {% endfor %}
-</section>
+    <section>
+        <h1>Recherche personnalisée</h1>
+        {{ form_start(rechercheForm)}}
+            {{ form_row(rechercheForm.genre)}}
+        {{ form_end(rechercheForm)}}
+    </section>
 
+    <div class="test">
+        {% for snowboard in snows %}
+            <div class="card">
+                <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" class="card-img-top" alt="{{ snowboard.imageName }}" style="width: 50%">
+                <div class="card-body">
+                    <h5 class="card-title">{{ snowboard.nom }}</h5>
+                </div>
+                <div style="color: black">
+                    <p>Marque : {{ snowboard.marque.nom }}</p>
+                    <p>Pour : {{ snowboard.genre.nom }}</p>
+                    <p>Programme : {{ snowboard.programme.nom }}</p>
+                    <p>Niveau : {{ snowboard.niveau.nom }}</p>
+                    <p>Cambre : {{ snowboard.cambre.nom }}</p>
+                    <p>Shape : {{ snowboard.shape.nom }}</p>
+                    <p>Insert : {{ snowboard.snowinsert.nom }}</p>
+                    <p>Prix : {{ snowboard.prix }} €/TTC</p>
+                </div>
+                {# <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Marque : {{ snowboard.marque.nom }}</li>
+                    <li class="list-group-item">Pour : {{ snowboard.genre.nom }}</li>
+                    <li class="list-group-item">Programme : {{ snowboard.niveau.nom }}</li>
+                    <li class="list-group-item">Cambre : {{ snowboard.cambre.nom }}</li>
+                    <li class="list-group-item">Shape : {{ snowboard.shape.nom }}</li>
+                    <li class="list-group-item">Insert : {{ snowboard.snowinsert.nom }}</li>
+                    <li class="list-group-item">Prix : {{ snowboard.prix }} €/TTC</li>
+                </ul> #}
+                <div class="card-body">
+                <a href="{{ path('snowboards_detail', {id: snowboard.id}) }}" class="bouton">Détail</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

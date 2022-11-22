@@ -7,11 +7,12 @@
         <div class="container">
             {% for message in app.flashes("email_envoyer") %}
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Nous avons bien reçu votre email. </strong>{{ message }}
+                    <strong>Nous avons bien reçu votre email. </strong>
+                    <p>{{ message }}</p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             {% endfor %}
-            <h2>Envoyer votre demande</h2>
+            <h1>Envoyer votre demande</h1>
             {{ form_start(formContact) }}
                 {{ form_row( formContact.nom ) }}
                 {{ form_row( formContact.prenom ) }}
