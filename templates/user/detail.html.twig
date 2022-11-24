@@ -55,4 +55,29 @@
         <a href="{{ path('admin_user_delete', { id: user.id }) }}" class="bouton bouton-suppr" onclick="return confirm('Souhaitez-vous vraiment supprimer cet utilisateur ?')" >Supprimer l'utilisateur</a>
     {% endif %}
     </section>
+        <h2>Historique commandes</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Produits</th>
+                    <th>Montant TTC</th>
+                    <th>Commande faite le</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for commande in commandes %}
+                {% if commande.user.id == app.user.id %}
+                    <tr>
+                        <td>
+                        {% for produits in commande.detailCommande %}
+                            {{ produits.nom }}</br>
+                        {% endfor %}
+                        </td>
+                        <td>{{ commande.montant }} €</td>
+                        <td>{{ commande.createdAt|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
 {% endblock %}

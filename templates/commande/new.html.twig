@@ -4,7 +4,7 @@
 
 {% block main %}
     <h1>Validation de la commande</h1>
-
+    <p>Le récapitulatif de la commande vous sera envoyé sur votre boîte mail : <strong>{{ app.user.email }}</strong> </p>
     {{ form_start(formCommande) }}
 
         {{ form_row(formCommande.nom) }}
@@ -56,6 +56,5 @@
             <button type="submit" class="btn btn-primary mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
         </form>
     </div>
-
 
 {% endblock %}

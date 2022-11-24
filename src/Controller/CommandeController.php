@@ -59,8 +59,6 @@ class CommandeController extends AbstractController
                 ];
                 $total += $snow->getPrix() * $quantite;
             }
-          
-                        
 
 
             $commande->setMontant($total);
@@ -76,12 +74,10 @@ class CommandeController extends AbstractController
                 $qteToretire = $detail['quantite'];
                 $snowTofind->setStock($snowTofind->getStock()-$qteToretire);
             }
-                
+
             $commande->setUser($this->getUser());
-
-
-            
             $commande->setCreatedAt(new DateTime());
+
             $em = $doctrine->getManager();
             $em->persist($commande);
             $em->flush();

@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Id Client</th>
                 <th>Adresse de livraison</th>
                 <th>Adresse de facturation</th>
                 <th>Produits</th>
@@ -20,6 +21,7 @@
         {% for commande in commandes %}
             <tr>
                 <td>{{ commande.id }}</td>
+                <td><a href="{{ path('user_detail', { id: commande.user.id }) }}">{{ commande.user.id }}</td>
                 <td>{{ commande.adresseLiv }}</td>
                 <td>{{ commande.adresseFacturation }}</td>
                 <td>

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
 use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\Persistence\ManagerRegistry;
@@ -21,9 +22,11 @@ class UserController extends AbstractController
     public function detail($id, ManagerRegistry $doctrine)
     {
         $user = $doctrine->getRepository(User::class)->find($id);
+        $commandes = $doctrine->getRepository(Commande::class)->findAll();
 
         return $this->render('user/detail.html.twig', [
             'user' => $user,
+            'commandes' => $commandes
         ]);
     }
 

@@ -13,9 +13,7 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/index.html.twig');
     }
     /**
      * @Route("/aide", name="aide")
@@ -23,9 +21,15 @@ class HomeController extends AbstractController
     public function aide(): Response
     {
         
-        return $this->render('home/aide.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('home/aide.html.twig');
+    }
+    /**
+     * @Route("/mentions-legale", name="mentions_legales")
+     */
+    public function mention(): Response
+    {
+        
+        return $this->render('footer/mention.html.twig');
     }
 
 }
