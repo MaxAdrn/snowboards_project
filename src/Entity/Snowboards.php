@@ -78,11 +78,6 @@ class Snowboards
     private $snowinsert;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $taille;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $stock;
@@ -226,18 +221,6 @@ class Snowboards
     public function setSnowinsert(?Snowinsert $snowinsert): self
     {
         $this->snowinsert = $snowinsert;
-
-        return $this;
-    }
-
-    public function getTaille(): ?string
-    {
-        return $this->taille;
-    }
-
-    public function setTaille(string $taille): self
-    {
-        $this->taille = $taille;
 
         return $this;
     }

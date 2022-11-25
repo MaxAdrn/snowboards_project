@@ -104,11 +104,6 @@ class SnowboardsType extends AbstractType
                     ])
                 ]
             ])
-            ->add('taille', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Ajouter la taille'
-                    ]
-            ])
             ->add('stock', NumberType::class, [
                 'attr' => [
                     'placeholder' => 'Ajouter le stock'
