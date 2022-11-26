@@ -23,13 +23,32 @@ class HomeController extends AbstractController
         
         return $this->render('home/aide.html.twig');
     }
+    
     /**
      * @Route("/mentions-legale", name="mentions_legales")
      */
     public function mention(): Response
     {
         
-        return $this->render('footer/mention.html.twig');
+        return $this->render('home/footer/mention.html.twig');
+    }
+
+    /**
+     * @Route("/cgv", name="cgv")
+     */
+    public function cgv(): Response
+    {
+        
+        return $this->render('home/footer/cgv.html.twig');
+    }
+
+    /**
+     * @Route("/cambres", name="cambres")
+     */
+    public function cambre(): Response
+    {
+        
+        return $this->render('home/cambre.html.twig');
     }
 
 }

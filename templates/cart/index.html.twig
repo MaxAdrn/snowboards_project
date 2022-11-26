@@ -12,7 +12,6 @@
             <thead>
                 <tr>
                     <th scope="col">Produit</th>
-                    <th scope="col">Taille</th>
                     <th scope="col">Prix TTC</th>
                     <th scope="col">Quantité</th>
                     <th scope="col">Montant</th>
@@ -23,7 +22,6 @@
                 {% for snow in items %}
                     <tr>
                         <td>{{ snow.snowboards.nom }}</td>
-                        <td>{{ snow.snowboards.taille }}</td>
                         <td>{{ snow.snowboards.prix|number_format(2, ',', ' ') ~ ' €' }}</td>
                         <td>{{ snow.quantite }} (Quantité max : {{ snow.snowboards.stock }})</td>
                         <td>{{ (snow.snowboards.prix * snow.quantite)|number_format(2, ',', ' ') }} €</td>

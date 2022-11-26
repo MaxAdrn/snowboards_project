@@ -31,36 +31,18 @@
         <nav>
             <a href="{{ path('home') }}" id="logo"><img id="logoimg" src="{{ asset("images/logo.svg") }}" alt="Logo Snow Rider's Area"></a>
             <div id="menu">
-
                 <button id="bouton_menu">
                     <img src="{{ asset("images/menu_burger.svg") }}" alt="menu">
                 </button>
-
                 <ul class="menu_section">
-                    <a href="{{ path('snowboards_index') }}">
-                        <li>Tous les snowboards</li>
-                    </a>
-                    <a href="{{ path('snowboards_splitboards') }}">
-                        <li>Splitboard</li>
-                    </a>
-                    <a href="#{#{{ path('') }}#}">
-                        <li>Polyvalent freeride</li>
-                    </a>
-                    <a href="">
-                        <li>Freeride</li>
-                    </a>
-                    <a href="">
-                        <li>Polyvalent freestyle</li>
-                    </a>
-                    <a href="">
-                        <li>Freestyle</li>
-                    </a>
-                    <a href="">
-                        <li>Carving</li>
-                    </a>
-                    <a href="">
-                        <li>100% poudreuse</li>
-                    </a>
+                        <li><a href="{{ path('snowboards_index') }}">Tous les snowboards</a></li>
+                        <li><a href="{{ path('snowboards_splitboards') }}">Splitboard</a></li>
+                        <li><a href="#{#{{ path('') }}#}">Polyvalent freeride</a></li>
+                        <li><a href="">Freeride</a></li>
+                        <li><a href="">Polyvalent freestyle</a></li>
+                        <li><a href="">Freestyle</a></li>
+                        <li><a href="">Carving</a></li>
+                        <li><a href="">100% poudreuse</a></li>
                 </ul>
             </div>
             <div class="navicone compte">
@@ -110,6 +92,7 @@
 
     <footer>
     <a href="{{path('mentions_legales')}}">Mentions légales</a>
+    <a href="{{path('cgv')}}">Conditions générales de vente</a>
         <p>&copy;Copyright - Projet de fin de formationn</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
