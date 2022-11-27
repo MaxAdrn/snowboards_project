@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Snowboards;
 use App\Entity\User;
 use App\Form\SnowboardsType;
+use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;

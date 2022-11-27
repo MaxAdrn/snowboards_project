@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Snowboards;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -76,12 +77,15 @@ class SnowboardsRepository extends ServiceEntityRepository
       ;
    }
    
-   public function findSplitboards() {
-      return $this->createQueryBuilder('s')
-      ->where('s.programme = 2')
-      ->groupBy('s.nom')
-      ->getQuery()
-       ->getResult()
-      ;
+   public function findByProgramme(int $programme) : array {
+      $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT s
+            FROM App\Entity\Snowboards s
+            WHERE s.programme = :programme'
+        )->setParameter('programme', $programme);
+
+        return $query->getResult();
    }
 }

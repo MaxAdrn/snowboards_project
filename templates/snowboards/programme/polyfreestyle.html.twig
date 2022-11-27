@@ -2,11 +2,12 @@
 {% block link %}
     <link rel="stylesheet" href="{{ asset('css/snowboards/index.css') }}">
 {% endblock %}
-{% block title %}Snowboards{% endblock %}
+{% block title %}Polyvalent freestyle{% endblock %}
 
 {% block main %}
     <a href="{{ path('recherche') }}" class="bouton">Recherche personnalisée</a>
-    <h1>Tout les snowboards</h1>
+    <h1>Polyvalent freestyle</h1>
+    {% if snowboards|length > 0 %}
     <div class="test">
         {% for snowboard in snowboards %}
             <div class="card">
@@ -39,4 +40,7 @@
             </div>
         {% endfor %}
     </div>
+    {% else %}
+        <p>Désolé ! Aucun produit n'est disponible pour le moment !</p>
+    {% endif %}
 {% endblock %}

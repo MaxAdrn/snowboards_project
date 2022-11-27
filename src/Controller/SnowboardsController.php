@@ -85,11 +85,90 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/splitboards", name="_splitboards")
      */
-    public function splitboards( SnowboardsRepository $snow)
+    public function splitboards( SnowboardsRepository $snowRepo)
     {
-        $snowboards = $snow->findSplitboards();
+        $programme = 1;
+        $snowboards = $snowRepo->findByProgramme($programme);
 
-        return $this->render('snowboards/index.html.twig', [
+        return $this->render('snowboards/programme/splitboards.html.twig', [
+            'snowboards' => $snowboards
+        ]);
+    }
+
+    /**
+     * @Route("/polyvalent-freeride", name="_poly_freeride")
+     */
+    public function polyvalentFreeride( SnowboardsRepository $snowRepo)
+    {
+        $programme = 2;
+        $snowboards = $snowRepo->findByProgramme($programme);
+
+        return $this->render('snowboards/programme/polyfreeride.html.twig', [
+            'snowboards' => $snowboards
+        ]);
+    }
+
+    /**
+     * @Route("/freeride", name="_freeride")
+     */
+    public function freeride( SnowboardsRepository $snowRepo)
+    {
+        $programme = 3;
+        $snowboards = $snowRepo->findByProgramme($programme);
+
+        return $this->render('snowboards/programme/freeride.html.twig', [
+            'snowboards' => $snowboards
+        ]);
+    }
+
+    /**
+     * @Route("/polyvalent-freestyle", name="_poly_freestyle")
+     */
+    public function polyvalentFreestyle( SnowboardsRepository $snowRepo)
+    {
+        $programme = 4;
+        $snowboards = $snowRepo->findPolyvalentFreestyle($programme);
+
+        return $this->render('snowboards/programme/polyfreestyle.html.twig', [
+            'snowboards' => $snowboards
+        ]);
+    }
+
+    /**
+     * @Route("/freestyle", name="_freestyle")
+     */
+    public function freestyle( SnowboardsRepository $snowRepo)
+    {
+        $programme = 5;
+        $snowboards = $snowRepo->findByProgramme($programme);
+
+        return $this->render('snowboards/programme/freestyle.html.twig', [
+            'snowboards' => $snowboards
+        ]);
+    }
+
+    /**
+     * @Route("/carving", name="_carving")
+     */
+    public function carving( SnowboardsRepository $snowRepo)
+    {
+        $programme = 6;
+        $snowboards = $snowRepo->findByProgramme($programme);
+
+        return $this->render('snowboards/programme/carving.html.twig', [
+            'snowboards' => $snowboards
+        ]);
+    }
+
+    /**
+     * @Route("/poudreuse", name="_poudreuse")
+     */
+    public function poudreuse( SnowboardsRepository $snowRepo)
+    {
+        $programme = 7;
+        $snowboards = $snowRepo->findByProgramme($programme);
+
+        return $this->render('snowboards/programme/poudreuse.html.twig', [
             'snowboards' => $snowboards
         ]);
     }

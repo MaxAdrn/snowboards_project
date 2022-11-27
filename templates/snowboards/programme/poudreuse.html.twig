@@ -2,11 +2,12 @@
 {% block link %}
     <link rel="stylesheet" href="{{ asset('css/snowboards/index.css') }}">
 {% endblock %}
-{% block title %}Snowboards{% endblock %}
+{% block title %}100% poudreuse{% endblock %}
 
 {% block main %}
     <a href="{{ path('recherche') }}" class="bouton">Recherche personnalisée</a>
-    <h1>Tout les snowboards</h1>
+    <h1>100% poudreuse</h1>
+    {% if snowboards|length > 0 %}
     <div class="test">
         {% for snowboard in snowboards %}
             <div class="card">
@@ -24,19 +25,13 @@
                     <p>Insert : {{ snowboard.snowinsert.nom }}</p>
                     <p>Prix : {{ snowboard.prix }} €/TTC</p>
                 </div>
-                {# <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Marque : {{ snowboard.marque.nom }}</li>
-                    <li class="list-group-item">Pour : {{ snowboard.genre.nom }}</li>
-                    <li class="list-group-item">Programme : {{ snowboard.niveau.nom }}</li>
-                    <li class="list-group-item">Cambre : {{ snowboard.cambre.nom }}</li>
-                    <li class="list-group-item">Shape : {{ snowboard.shape.nom }}</li>
-                    <li class="list-group-item">Insert : {{ snowboard.snowinsert.nom }}</li>
-                    <li class="list-group-item">Prix : {{ snowboard.prix }} €/TTC</li>
-                </ul> #}
                 <div class="card-body">
                 <a href="{{ path('snowboards_detail', {id: snowboard.id}) }}" class="bouton">Détail</a>
                 </div>
             </div>
         {% endfor %}
     </div>
+    {% else %}
+        <p>Désolé ! Aucun produit n'est disponible pour le moment !</p>
+    {% endif %}
 {% endblock %}
