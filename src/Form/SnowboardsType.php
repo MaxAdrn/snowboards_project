@@ -41,6 +41,11 @@ class SnowboardsType extends AbstractType
                     'placeholder' => 'Ajouter le prix'
                     ]
             ])
+            ->add('stock', NumberType::class, [
+                'attr' => [
+                    'placeholder' => 'Ajouter le stock'
+                    ]
+            ])
             ->add('genre', EntityType::class, [
                 'placeholder' => 'Choisir un genre',
                 'required' => false,
@@ -65,8 +70,8 @@ class SnowboardsType extends AbstractType
                 'class' => Marque::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (MarqueRepository $marque) {
-                    return $marque->createQueryBuilder('c')
-                        ->orderBy('c.nom', 'ASC');
+                    return $marque->createQueryBuilder('m')
+                        ->orderBy('m.nom', 'ASC');
                 }
             ])
             ->add('programme', EntityType::class, [
@@ -93,21 +98,16 @@ class SnowboardsType extends AbstractType
                 'constraints' => [
                     new File([
                         'maxSize' => '1M',
+                        'maxSizeMessage' => 'Maximum 1Mo',
                         'mimeTypes' => [
                             'image/jpeg',
                             'image/png',
                             'image/webp',
                             'image/gif'
                         ],
-                        'maxSizeMessage' => 'Max 1Mo',
                         'mimeTypesMessage' => 'Format jpeg, png, gif ou webp requis'
                     ])
                 ]
-            ])
-            ->add('stock', NumberType::class, [
-                'attr' => [
-                    'placeholder' => 'Ajouter le stock'
-                    ]
             ])
         ;
     }

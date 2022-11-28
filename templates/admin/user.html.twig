@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block link %}
-    <link rel="stylesheet" href="{{ asset('css/user/index.css') }}">
-{% endblock %}
+{% block link %}<link rel="stylesheet" href="{{ asset('css/user/index.css') }}">{% endblock %}
 
-{% block title %}Liste des utilisateurs{% endblock %}
+{% block title %}Espace utilisateurs{% endblock %}
 
 {% block main %}
+    <h1>Espace utilisateurs</h1>
     <a href="{{ path('admin_index') }}" class="bouton">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
@@ -26,18 +25,17 @@
             </tr>
         </thead>
         <tbody>
-
-            {% for user in user %}
-                <tr>
-                    <th scope="row">{{ user.id }}</th>
-                    <td>{{ user.nom }}</td>
-                    <td>{{ user.prenom }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.createdAt|date("Y-m-d à H:i:s") }}</td>
-                    <td><a href="{{ path('user_detail', {id: user.id}) }}" class="bouton">Détail</a></td>
-                    <td><a href="{{ path('admin_user_delete', {id: user.id}) }}" onclick="return confirm('Souhaitez-vous vraiment supprimer cet utilisateur ?')" class="bouton bouton-suppr">Supprimer</a></td>
-                </tr>
-            {% endfor %}    
+        {% for user in user %}
+            <tr>
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.createdAt|date("Y-m-d à H:i:s") }}</td>
+                <td><a href="{{ path('user_detail', {id: user.id}) }}" class="bouton">Détail</a></td>
+                <td><a href="{{ path('admin_user_delete', {id: user.id}) }}" onclick="return confirm('Souhaitez-vous vraiment supprimer cet utilisateur ?')" class="bouton bouton-suppr">Supprimer</a></td>
+            </tr>
+        {% endfor %}    
         </tbody>
     </table>
 {% endblock %}

@@ -33,7 +33,7 @@ class SnowboardsController extends AbstractController
      * @Route("/add", name="_add")
      * @IsGranted("ROLE_ADMIN")
      */
-    public function add( Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine)
     {
         // création nouvel objet snowboards
         $snowboards = new Snowboards;
@@ -47,19 +47,19 @@ class SnowboardsController extends AbstractController
         // s'il est soumis et valide alors
         if($formSnowboards->isSubmitted() && $formSnowboards->isValid()) {
 
-            // alimentation automatique du champs updatedAt (nécessaire si besoin pour mettre à jour l'image du snowboard)
+            // alimentation automatique du champs updatedAt (nécessaire pour mettre à jour l'image du snowboard si besoin)
             $snowboards->setUpdatedAt(new \DateTime());
 
             // appel de l'entité manager de doctrine pour l'enregistrement
-            $em = $doctrine->getManager();
+            $entityManager = $doctrine->getManager();
 
             // persiste l'enregistrement en base de donnée
-            $em->persist($snowboards);
+            $entityManager->persist($snowboards);
 
             // on enregistre en base de donnée
-            $em->flush();
+            $entityManager->flush();
 
-            // $this->addFlash('snowboard_succes', "Votre snowboard a bien été ajoutée !");
+            $this->addFlash('snowboard_succes', "Le snowboard a bien été ajouté !");
 
             // redirection vers la page de gestion des snowboards des admins
             return $this->redirectToRoute('admin_snowboards');
