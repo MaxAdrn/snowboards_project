@@ -11,9 +11,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
 
-    {% block link %}
-
-    {% endblock %}
+    {% block link %}{% endblock %}
 
     <title>
     {% block title %}
@@ -47,34 +45,24 @@
             </div>
             <div class="navicone compte">
                 <button id="bouton_compte">
-                    <img src="{{ asset("images/account_circle.svg") }}" alt="compte">
+                    <img src="{{ asset("images/account_circle.svg") }}" alt="compte utilisateur">
                     <p>Compte</p>
                 </button>
 
                 {% if app.user %}
+                    <ul class="liens-compte">                        
+                        <li><a href="{{ path('user_detail', { id: app.user.id }) }}">Mon profil</a></li>                        
+                        {% if is_granted('ROLE_ADMIN') %}                            
+                        <li><a href="{{ path('admin_index') }}">Espace admin</a></li>
+                        {% endif %}                        
+                        <li><a href="{{ path('app_logout') }}" id="deconnexion">Déconnexion</a></li>                        
+                    </ul>
+                        {% else %}
                     <ul class="liens-compte">
-                        <a href="{{ path('user_detail', { id: app.user.id }) }}">
-                            <li>Mon profil</li>
-                        </a>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('admin_index') }}">
-                                <li>Espace admin</li>
-                            </a>
+                        <li><a href="{{ path('app_login') }}" id="connexion">Se connecter</a></li>
+                        <li><a href="{{ path('register') }}">S'inscrire</a></li>                        
                         {% endif %}
-                        <a href="{{ path('app_logout') }}" id="deconnexion">
-                            <li>Déconnexion</li>
-                        </a>
                     </ul>
-                {% else %}
-                    <ul class="liens-compte">
-                        <a href="{{ path('app_login') }}" id="connexion">
-                            <li>Se connecter</li>
-                        </a>
-                        <a href="{{ path('register') }}">
-                            <li>S'inscrire</li>
-                        </a>
-                    </ul>
-                {% endif %}
             </div>
             <a href="{{ path('cart_index') }}" class="navicone panier"><img src="{{ asset("images/shopping_cart.svg") }}" alt="panier"><p>Panier</p></a>
             <a href="{{ path('recherche') }}" class="navicone recherche"><img src="{{ asset("images/search.svg") }}" alt="Rechercher"><p>Rechercher</p></a>

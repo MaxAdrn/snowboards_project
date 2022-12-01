@@ -30,14 +30,18 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): Passport
     {
+        // request pour récupérer les données saisies par l'utilisateur du formulaire de login dans le champs email
         $email = $request->request->get('email', '');
-
+        // on met le request en session et on y met l'email qu'on vient de récuperer à l'interieur
         $request->getSession()->set(Security::LAST_USERNAME, $email);
-
+        // ce qui permet l'authentification c'est la création de l'objet passport (c'est un truc à vérifier par symfony)
         return new Passport(
+            // permet de récupérer un utilisateur avec l'email qu'on récupère
             new UserBadge($email),
+            // pour récupérer le mot de passe à partir du formulaire et de le vérifier
             new PasswordCredentials($request->request->get('password', '')),
             [
+                // pour récupérer le mot de passe à partir du formulaire et de le vérifier
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
             ]
         );

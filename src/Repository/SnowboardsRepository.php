@@ -55,8 +55,6 @@ class SnowboardsRepository extends ServiceEntityRepository
          ->setParameter('genre', $criteres->getGenre()->getId())
          ->andwhere('s.cambre = :cambre')
          ->setParameter('cambre', $criteres->getCambre()->getId())
-         ->andwhere('s.marque = :marque')
-         ->setParameter('marque', $criteres->getMarque()->getId())
          ->andwhere('s.niveau = :niveau')
          ->setParameter('niveau', $criteres->getNiveau()->getId())
          ->andwhere('s.snowinsert = :snowinsert')

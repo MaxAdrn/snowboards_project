@@ -76,7 +76,7 @@ main a:hover section  {
 }
 
 h2 {
-    font-family: 'Emblema One', cursive;
+    /* font-family: 'Emblema One', cursive; */
     color: white;
     letter-spacing: 0.2rem;
     text-shadow: 0px 0px 3px var(--couleur2);

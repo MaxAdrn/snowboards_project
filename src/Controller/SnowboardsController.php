@@ -53,13 +53,11 @@ class SnowboardsController extends AbstractController
             // appel de l'entité manager de doctrine pour l'enregistrement
             $entityManager = $doctrine->getManager();
 
-            // persiste l'enregistrement en base de donnée
+            // persiste l'enregistrement des données
             $entityManager->persist($snowboards);
 
-            // on enregistre en base de donnée
+            // on enregistre en base de données
             $entityManager->flush();
-
-            $this->addFlash('snowboard_succes', "Le snowboard a bien été ajouté !");
 
             // redirection vers la page de gestion des snowboards des admins
             return $this->redirectToRoute('admin_snowboards');
@@ -127,7 +125,7 @@ class SnowboardsController extends AbstractController
     public function polyvalentFreestyle( SnowboardsRepository $snowRepo)
     {
         $programme = 4;
-        $snowboards = $snowRepo->findPolyvalentFreestyle($programme);
+        $snowboards = $snowRepo->findByProgramme($programme);
 
         return $this->render('snowboards/programme/polyfreestyle.html.twig', [
             'snowboards' => $snowboards

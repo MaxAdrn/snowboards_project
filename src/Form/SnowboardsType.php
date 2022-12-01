@@ -28,45 +28,49 @@ class SnowboardsType extends AbstractType
         $builder
             ->add('nom', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Ajouter le nom'
+                    'placeholder' => 'Ajouter le nom',
+                    'required' => true
                     ]
             ])
             ->add('description', TextareaType::class, [
                 'attr' => [
-                    'placeholder' => 'Ajouter la description'
+                    'placeholder' => 'Ajouter la description',
+                    'required' => true
                     ]
             ])
             ->add('prix', NumberType::class, [
                 'attr' => [
-                    'placeholder' => 'Ajouter le prix'
+                    'placeholder' => 'Ajouter le prix',
+                    'required' => true
                     ]
             ])
             ->add('stock', NumberType::class, [
                 'attr' => [
-                    'placeholder' => 'Ajouter le stock'
+                    'placeholder' => 'Ajouter le stock',
+                    'required' => true
                     ]
             ])
             ->add('genre', EntityType::class, [
                 'placeholder' => 'Choisir un genre',
-                'required' => false,
+                'required' => true,
                 'class' => Genre::class,
                 'choice_label' => 'nom'
             ])
             ->add('cambre', EntityType::class, [
                 'placeholder' => 'Choisir le type de cambre',
-                'required' => false,
+                'required' => true,
                 'class' => Cambre::class,
                 'choice_label' => 'nom'
             ])
             ->add('niveau', EntityType::class, [
                 'placeholder' => 'Choisir un niveau',
-                'required' => false,
+                'required' => true,
                 'class' => Niveau::class,
                 'choice_label' => 'nom'
                 ])
             ->add('marque', EntityType::class, [
                 'placeholder' => 'Choisir une marque',
-                'required' => false,
+                'required' => true,
                 'class' => Marque::class,
                 'choice_label' => 'nom',
                 'query_builder' => function (MarqueRepository $marque) {
@@ -76,19 +80,19 @@ class SnowboardsType extends AbstractType
             ])
             ->add('programme', EntityType::class, [
                 'placeholder' => 'Choisir le type de programme',
-                'required' => false,
+                'required' => true,
                 'class' => Programme::class,
                 'choice_label' => 'nom'
             ])
             ->add('shape', EntityType::class, [
                 'placeholder' => 'Choisir le type de shape',
-                'required' => false,
+                'required' => true,
                 'class' => Shape::class,
                 'choice_label' => 'nom'
             ])
             ->add('snowinsert', EntityType::class, [
                 'placeholder' => 'Choisir le type d\'insert',
-                'required' => false,
+                'required' => true,
                 'label' => 'Insert',
                 'class' => Snowinsert::class,
                 'choice_label' => 'nom'
@@ -101,11 +105,11 @@ class SnowboardsType extends AbstractType
                         'maxSizeMessage' => 'Maximum 1Mo',
                         'mimeTypes' => [
                             'image/jpeg',
+                            'image/jpg',
                             'image/png',
-                            'image/webp',
-                            'image/gif'
+                            'image/webp'
                         ],
-                        'mimeTypesMessage' => 'Format jpeg, png, gif ou webp requis'
+                        'mimeTypesMessage' => 'Format .jpeg, .jpg, .png ou .webp requis'
                     ])
                 ]
             ])

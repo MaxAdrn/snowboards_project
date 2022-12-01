@@ -9,6 +9,12 @@
         <h1>Recherche personnalisée</h1>
         {{ form_start(rechercheForm)}}
             {{ form_row(rechercheForm.genre)}}
+            {{ form_row(rechercheForm.niveau)}}
+            {{ form_row(rechercheForm.programme)}}
+            {{ form_row(rechercheForm.cambre)}}
+            {{ form_row(rechercheForm.shape)}}
+            {{ form_row(rechercheForm.snowinsert)}}
+            <input type="submit" value="Rechercher" class="btn btn-info">
         {{ form_end(rechercheForm)}}
     </section>
     <div class="test">
@@ -18,7 +24,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ snowboard.nom }}</h5>
                 </div>
-                <div style="color: black">
+                {# <div style="color: black">
                     <p>Marque : {{ snowboard.marque.nom }}</p>
                     <p>Pour : {{ snowboard.genre.nom }}</p>
                     <p>Programme : {{ snowboard.programme.nom }}</p>
@@ -27,8 +33,8 @@
                     <p>Shape : {{ snowboard.shape.nom }}</p>
                     <p>Insert : {{ snowboard.snowinsert.nom }}</p>
                     <p>Prix : {{ snowboard.prix }} €/TTC</p>
-                </div>
-                {# <ul class="list-group list-group-flush">
+                </div> #}
+                <ul class="list-group list-group-flush">
                     <li class="list-group-item">Marque : {{ snowboard.marque.nom }}</li>
                     <li class="list-group-item">Pour : {{ snowboard.genre.nom }}</li>
                     <li class="list-group-item">Programme : {{ snowboard.niveau.nom }}</li>
@@ -36,7 +42,7 @@
                     <li class="list-group-item">Shape : {{ snowboard.shape.nom }}</li>
                     <li class="list-group-item">Insert : {{ snowboard.snowinsert.nom }}</li>
                     <li class="list-group-item">Prix : {{ snowboard.prix }} €/TTC</li>
-                </ul> #}
+                </ul>
                 <div class="card-body">
                 <a href="{{ path('snowboards_detail', {id: snowboard.id}) }}" class="bouton">Détail</a>
                 </div>

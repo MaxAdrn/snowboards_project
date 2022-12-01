@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/admin", name="admin")
@@ -21,7 +22,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/index", name="_index")
      */
-    public function admin()
+    public function admin(): Response
     {
         return $this->render('admin/admin.html.twig', [
         ]);
@@ -30,7 +31,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/user", name="_user")
      */
-    public function index(ManagerRegistry $doctrine)
+    public function index(ManagerRegistry $doctrine): Response
     {
         $user = $doctrine->getRepository(User::class)->findAll();
         return $this->render('admin/user.html.twig', [
@@ -41,7 +42,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/user/delete/{id}", name="_user_delete")
      */
-    public function deleteUser($id, ManagerRegistry $doctrine)
+    public function deleteUser($id, ManagerRegistry $doctrine): Response
     {
         $user = $doctrine->getRepository(User::class)->find($id);
 
@@ -62,7 +63,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/snowboards", name="_snowboards")
      */
-    public function adminSnowboards(ManagerRegistry $doctrine)
+    public function adminSnowboards(ManagerRegistry $doctrine): Response
     {
         $snowboards = $doctrine->getRepository(Snowboards::class)->findAll();
 
@@ -74,7 +75,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/snowboard/update/{id}", name="_snowboard_update")
      */
-    public function update($id, ManagerRegistry $doctrine, Request $request)
+    public function update($id, ManagerRegistry $doctrine, Request $request): Response
     {
         $snowboards = $doctrine->getRepository(Snowboards::class)->find($id);
         $formSnowboards = $this->createForm(SnowboardsType::class, $snowboards);
@@ -98,7 +99,7 @@ class AdminController extends AbstractController
     /**
      * @Route("/snowboard/delete/{id}", name="_snowboard_delete")
      */
-    public function deleteSnowboards($id, ManagerRegistry $doctrine)
+    public function deleteSnowboards($id, ManagerRegistry $doctrine): Response
     {
         $snowboards = $doctrine->getRepository(Snowboards::class)->find($id);
 

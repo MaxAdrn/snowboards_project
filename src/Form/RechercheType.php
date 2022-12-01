@@ -29,10 +29,6 @@ class RechercheType extends AbstractType
                 'class' => Cambre::class,
                 'choice_label' => 'nom'
             ])
-            ->add('marque', EntityType::class, [
-                'class' => Marque::class,
-                'choice_label' => 'nom'
-            ])
             ->add('niveau', EntityType::class, [
                 'class' => Niveau::class,
                 'choice_label' => 'nom'
@@ -47,9 +43,9 @@ class RechercheType extends AbstractType
             ])
             ->add('snowinsert', EntityType::class, [
                 'class' => Snowinsert::class,
-                'choice_label' => 'nom'
+                'choice_label' => 'nom',
+                'label' => 'Insert'
             ])
-            ->add('Rechercher', SubmitType::class)
         ;
     }
 
