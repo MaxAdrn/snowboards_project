@@ -9,13 +9,13 @@
 {% block main %}
     
         <h1>Espace administrateur</h1>
-        <section>
-            <h3>Gérer les utilisateurs : </h3>
-            <a href="{{ path('admin_user') }}" class="bouton">Accéder à l'espace utilisateurs</a>
+        <section class="mt-3">
+            <h2>Gérer les utilisateurs : </h2>
+            <a href="{{ path('admin_user') }}" class="btn btn-info btn-sm">Accéder à l'espace utilisateurs</a>
         </section>
-        <section>
-            <h3>Gérer les snowboards : </h3>
-            <a href="{{ path('admin_snowboards') }}" class="bouton">Accéder à l'espace snowboards</a>
+        <section class="mt-3">
+            <h2>Gérer les snowboards : </h2>
+            <a href="{{ path('admin_snowboards') }}" class="btn btn-info btn-sm">Accéder à l'espace snowboards</a>
         </section>
 
 {% endblock %}

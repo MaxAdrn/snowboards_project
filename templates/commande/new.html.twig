@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block link %}
+    <link rel="stylesheet" href="{{ asset('css/table.css') }}">
+{% endblock %}
+
 {% block title %}New Commande{% endblock %}
 
 {% block main %}
@@ -17,10 +21,9 @@
 
     <div>
         
-        <table class="table table-striped table-hover" style="color: white !important">
+        <table class="table table-striped table-hover mt-5">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Prix unitaire / TTC</th>
                     <th scope="col">Quantité</th>
@@ -31,27 +34,24 @@
 
                  {% for element in panierData %}
                     <tr>
-                        <th scope="row">{{ element.snowboards.id }}</th>
                         <td>{{ element.snowboards.nom }}</td>
                         <td>{{ element.snowboards.prix|number_format(2, ',', ' ') }} €</td>
                         <td>{{ element.quantite }}</td>
                         <td>{{ (element.snowboards.prix * element.quantite)|number_format(2, ',', ' ') }} €</td>
-                       
                     </tr>
                 {% else %}
                     <tr>
                         <td colspan="6">Votre panier est vide</td>
                     </tr>
                 {% endfor %}
-
-                        <tr>
+                </tbody>
+                <tfoot>
+                    <tr>
                         <td colspan="6">Montant total : {{ montant|number_format(2, ',', ' ') }} € / TTC</td>
                     </tr>
-            
-
-            </tbody>
+                </tfoot>
         </table>
-        <a href="{{ path('cart_index') }}" class="bouton">Retour au panier</a>
+        <a href="{{ path('cart_index') }}" class="btn btn-info btn-sm">Retour au panier</a>
         <form action="{{ path('checkout') }}" method="POST">
             <button type="submit" class="btn btn-primary mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
         </form>

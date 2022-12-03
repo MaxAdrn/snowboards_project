@@ -120,28 +120,28 @@
                     <ul class="liste-compte">                        
                         <li>
                             <a href="{{ path('user_detail', { id: app.user.id }) }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
-                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-                            </svg>    
-                            Mon profil
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                </svg>    
+                                Mon profil
                             </a>
                         </li>                        
                     {% if is_granted('ROLE_ADMIN') %}                            
                         <li>
                             <a href="{{ path('admin_index') }}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
-                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-                            </svg>
-                            Espace admin
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                </svg>
+                                Espace admin
                             </a>
                         </li>
                     {% endif %}                        
                         <li>
                             <a href="{{ path('app_logout') }}" id="deconnexion">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-caret-right" viewBox="0 0 16 16">
-                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
-                            </svg>
-                            Déconnexion
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                                </svg>
+                                Déconnexion
                             </a>
                         </li>                        
                     </ul>

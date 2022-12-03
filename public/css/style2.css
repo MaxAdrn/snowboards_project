@@ -74,12 +74,11 @@ nav div, .navicone {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     min-height: 75vh;
     width: 80%;
     margin: 0 auto;
     padding: 5vh 5vw;
-    background-color: rgba(40, 40, 40, 0.8);
+    background-color: rgba(40, 40, 40, 0.9);
     text-align: center;
 }
 h1, h2 {
@@ -97,6 +96,9 @@ h1 {
     top: 80%;
     background: var(--couleur1);
     z-index: 0;
+}
+h2 {
+    color: var(--couleur2);
 }
 footer {
     background-color: var(--couleur1);
@@ -221,7 +223,7 @@ footer ul {
     .liste-menu {
         display: flex;
         flex-direction: row;
-        width: 99.2vw;
+        width: 100vw;
     }
     .liste-compte {
         right: -2.4vw;

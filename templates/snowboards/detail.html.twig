@@ -15,12 +15,12 @@
         Retour à la page précedente
     </a>
     <section class="py-1">
-    <h1>Fiche snowbard {{ snowboard.nom }}</h1>
+    <h1>Fiche snowbard - {{ snowboard.nom }}</h1>
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
                 <div class="col-md-6">
                     <img class="card-img-top mb-2 mb-md-0 w-50" src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" alt="{{ snowboard.imageName }}"/>
-        <div class="d-flex mt-2 mb-2">
+                    <div class="d-flex mt-2 mb-2">
                     <a class="btn btn-info btn-sm" type="button" href="{{ path('cart_add', {id: snowboard.id}) }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z"/>
@@ -28,36 +28,35 @@
                         </svg>
                         Ajouter au panier
                     </a>
-                </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <h2 class="display-5 fw-bolder">{{ snowboard.nom }}</h2>
                     <div class="fs-5 mb-3">
                         <span>{{ snowboard.prix }} € / TTC</span>
                     </div>
-                    <h4>Marque</h4>
-                    <p>{{ snowboard.marque.nom }}</p>
-                    <h4>Pour </h4>
-                    <p>{{ snowboard.genre.nom }}</p>
-                    <h4>Niveau </h4>
-                    <p>{{ snowboard.niveau.nom }}</p>
-                    <h4>Programme </h4>
-                    <p>{{ snowboard.programme.nom }}</p>
-                    <h4>Shape </h4>
-                    <p>{{ snowboard.shape.nom }}</p>
-                    <h4>Insert </h4>
-                    <p>{{ snowboard.snowinsert.nom }}</p>
-                    <h4>Programme </h4>
-                    <p>{{ snowboard.programme.nom }}</p>
-                    <h4>Stock </h4>
-                    <p>{{ snowboard.stock }}</p>
+                    <h4 class="fst-italic">Marque :</h4>
+                    <p class="text-uppercase">{{ snowboard.marque.nom }}</p>
+                    <h4 class="fst-italic">Pour :</h4>
+                    <p class="text-uppercase">{{ snowboard.genre.nom }}</p>
+                    <h4 class="fst-italic">Niveau :</h4>
+                    <p class="text-uppercase">{{ snowboard.niveau.nom }}</p>
+                    <h4 class="fst-italic">Programme :</h4>
+                    <p class="text-uppercase">{{ snowboard.programme.nom }}</p>
+                    <h4 class="fst-italic">Shape :</h4>
+                    <p class="text-uppercase">{{ snowboard.shape.nom }}</p>
+                    <h4 class="fst-italic">Insert :</h4>
+                    <p class="text-uppercase">{{ snowboard.snowinsert.nom }}</p>
+                    <h4 class="fst-italic">Programme :</h4>
+                    <p class="text-uppercase">{{ snowboard.programme.nom }}</p>
+                    <h4 class="fst-italic">Stock :</h4>
+                    <p class="text-uppercase">{{ snowboard.stock }}</p>
                 </div>
-                <h4>Description</h4>
+                <h4 class="fst-italic">Description :</h4>
                 <p> {{ snowboard.description }}</p>
             </div>
         </div>
     {% if is_granted('ROLE_ADMIN') %}
-    <div class="btn-group" role="group" aria-label="Basic example">
         <a href="{{ path('admin_snowboards') }}" class="btn btn-info btn-sm">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
@@ -78,7 +77,6 @@
             </svg>
             Supprimer
         </a>
-    </div>
     {% endif %}
     </section>
 {% endblock %}
