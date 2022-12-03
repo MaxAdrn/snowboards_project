@@ -84,22 +84,23 @@ class CommandeController extends AbstractController
 
             return $this->redirectToRoute('commande_index', [], Response::HTTP_SEE_OTHER);
         }
-   
-        
         //************************************************************************************ */
 
                 #On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
 
         //************************************************************************************ */
+        if($this->getUser()) {
+            return $this->renderForm('commande/new.html.twig', [
+                'formCommande' => $formCommande,
+                "panierData" => $panierData, 
+                "total" => $total,
+                "montant" => $commande->getMontant()
+            ]);
+        } else {
 
-        
-
-        return $this->renderForm('commande/new.html.twig', [
-            'formCommande' => $formCommande,
-            "panierData" => $panierData, 
-            "total" => $total,
-            "montant" => $commande->getMontant()
-        ]);
+            $this->addFlash('creation_panier', "Si vous n'avez pas de compte, vous pouvez le créer en cliquant sur le bouton \"Créer un compte\" ci-dessous");
+            return $this->redirectToRoute('app_login');
+        }
     }
 
     /**

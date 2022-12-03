@@ -1,122 +1,12 @@
-.test {
+.snow-index {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     margin: 1vh auto;
 }
-p {
-    margin: 0.5vh 0;
-}
-.card {
-    height: 100%;
-    margin-bottom: 1vh;
-}
-/* section, h6, p {
-    text-align: left;
-}
-
-article {
-    margin-left: 0;
-    padding: 0.5vh 0.5vw;
-}
-h6 {
-    color: var(--couleur2);
-}
-
-main a:nth-child(1) {
-    width: fit-content;
-    grid-column: 1 / 3;
+.snow-index img {
     margin: auto;
-    margin-bottom: 3vh;
 }
-
-#fiche-produit {
-    display: flex;
-    width: 35%;
-    height: 50vh;
-    border: 1px solid var(--couleur2);
-    margin: 2vh auto;
-    background-color: var(--couleur1);
+p {
+    margin-bottom: 0.5vh;
 }
-
-@media screen and (min-width: 900px) {
-    main {
-        display: grid;
-        grid-template-columns: 50% 50%;
-    }
-
-    section {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        width: 100%;
-    }
-
-    img {
-        margin: 0 auto;
-    }
-
-    #fiche-produit {
-        width: 35vw;
-        height: 50vh;
-    }
-
-    h1, h4 {
-        grid-column: 1 / 3;
-        text-align: center;
-    }
-    h1 {
-        margin-bottom: 3vh;
-    }
-    h4 {
-        width: 100%;
-        border-bottom: 1px solid var(--couleur2);
-        padding: 0.5vh 0;
-        margin: 0;
-    }
-
-}
-
-@media screen and (max-width: 899px) {
-    main {
-        display: flex;
-        flex-direction: column;
-    }
-    article {
-        margin-left: 0;
-        padding: 0.5vh 1vw;
-    }
-
-    section {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        width: 100%;
-    }
-
-    main img {
-        margin-top: 0;
-        width: 15vw;
-    }
-
-    #fiche-produit {
-        flex-direction: column;
-        width: 90%;
-        height: 50%;
-    }
-
-    h1, h4 {
-        grid-column: 1 / 3;
-        text-align: center;
-    }
-    h1 {
-        margin-bottom: 5vh;
-    }
-    h4 {
-        width: 100%;
-        border-bottom: 1px solid var(--couleur2);
-        padding: 0.5vh 0;
-        margin: 0;
-    }
-    h6 {
-        color: var(--couleur2);
-    }
-} */

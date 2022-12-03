@@ -4,15 +4,15 @@
 
 {% block main %}
 
+    <section>
     {% for message in app.flashes('creation_panier') %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="text-start alert alert-info alert-dismissible fade show" role="alert">
+            <p><strong>Vous devez vous connecter pour passer commande.</strong> {{ message }}</p>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     {% endfor %}
-
-    <section>
         <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
-        <form method="post" style="width: 50%">
+        <form method="post">
             {% if error %}
                 <div class="alert alert-danger">Erreur sur l'email ou le mot de passe. Veuillez réessayer.</div>
             {% endif %}
@@ -23,14 +23,14 @@
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-            <button class="bouton" type="submit">
+            <button class="btn btn-info btn-sm" type="submit">
                 Se connecter
             </button>
         </form>
-        <a href="{{ path('app_forgot_password_request') }}" class="bouton">Mot de passe oublié</a>
+        <a href="{{ path('app_forgot_password_request') }}" class="btn btn-warning btn-sm">Mot de passe oublié</a>
         <p>
-            Si vous souhaitez créer un compte, suivez ce lien : </br>
-            <a href="{{ path('register') }}" class="bouton">Créer un compte</a>
+            Si vous souhaitez créer un compte, cliquez ici :
+            <a href="{{ path('register') }}" class="btn btn-info btn-sm">Créer un compte</a>
         </p>
     </section>
     

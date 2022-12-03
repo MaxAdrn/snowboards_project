@@ -9,6 +9,224 @@
         rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
         crossorigin="anonymous">
+     <link rel="stylesheet" href="{{ asset("css/style2.css") }}"> 
+
+    {% block link %}{% endblock %}
+
+    <title>
+    {% block title %}
+        Snowboards Area
+    {% endblock %}
+    </title>
+
+</head>
+
+<body>
+{% block body %}
+
+    <header>
+        <nav>
+            <a href="{{ path('home') }}" id="logo"><img id="logoimg" src="{{ asset("images/logo.svg") }}" alt="Logo Snow Rider's Area"></a>
+            <div id="menu">
+                <a aria-disabled="true" id="bouton_menu">
+                    <img src="{{ asset("images/menu_burger.svg") }}" alt="menu" class="navimg">
+                    <p>Menu</p>
+                </a>
+                <ul class="liste-menu">
+                    <li>
+                        <a href="{{ path('snowboards_index') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Tous les snowboards
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('snowboards_poly_freeride') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Polyvalent freeride
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('snowboards_poly_freestyle') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                        </a>
+                        Polyvalent freestyle
+                    </li>
+                    <li>
+                        <a href="{{ path('snowboards_splitboards') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Splitboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('snowboards_freeride') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Freeride
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('snowboards_freestyle') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Freestyle
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('snowboards_carving') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Carving
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('snowboards_poudreuse') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            100% poudreuse
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="{{ path('recherche') }}" class="navicone">
+                <img src="{{ asset("images/search1.svg") }}" alt="Rechercher" class="navimg">
+                <p>Rechercher</p>
+            </a>
+            <a href="{{ path('aide') }}" class="navicone">
+                <img src="{{ asset("images/question-circle.svg") }}" alt="aide" class="navimg">
+                <p>Aide</p>
+            </a>
+            <a href="{{ path('cart_index') }}" class="navicone">
+                <img src="{{ asset("images/cart3.svg") }}" alt="panier" class="navimg">
+                <p>Panier</p>
+            </a>
+            <div class="compte">
+                <a aria-disabled="true" id="bouton_compte">
+                    <img src="{{ asset("images/person-circle.svg") }}" alt="compte utilisateur" class="navimg">
+                    <p>Compte</p>
+                </a>
+                    {% if app.user %}
+                    <ul class="liste-compte">                        
+                        <li>
+                            <a href="{{ path('user_detail', { id: app.user.id }) }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>    
+                            Mon profil
+                            </a>
+                        </li>                        
+                    {% if is_granted('ROLE_ADMIN') %}                            
+                        <li>
+                            <a href="{{ path('admin_index') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Espace admin
+                            </a>
+                        </li>
+                    {% endif %}                        
+                        <li>
+                            <a href="{{ path('app_logout') }}" id="deconnexion">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Déconnexion
+                            </a>
+                        </li>                        
+                    </ul>
+                    {% else %}
+                    <ul class="liste-compte">
+                        <li>
+                            <a href="{{ path('app_login') }}" id="connexion">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="lime" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            Se connecter
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('register') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                            </svg>
+                            S'inscrire
+                            </a>
+                        </li>                        
+                    </ul>
+                    {% endif %}
+            </div>
+        </nav>
+
+    </header>    
+
+    <main>
+        {% block main %}
+        
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy;Copyright - Projet de fin de formation</p>
+        <ul>
+            <li>
+                <a href="{{path('mentions_legales')}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                        <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                    </svg>
+                    Mentions légales
+                </a>
+            </li>
+            <li>
+                <a href="{{path('cgv')}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                </svg>
+                Politique de confidentialité
+                </a>
+            </li>
+            <li>
+                <a href="{{path('cgv')}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(8, 248, 241)" class="bi bi-caret-right" viewBox="0 0 16 16">
+                    <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z"/>
+                </svg>
+                Conditions générales de vente
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous">
+    </script>
+    <script src="{{ asset("javascript/base.js") }}"></script>
+    {% block javascripts %}
+    
+    {% endblock %}
+</body>
+ {% endblock %}   
+</html>
+ {# <!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{ asset("images/logo.svg") }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
 
     {% block link %}{% endblock %}
@@ -93,4 +311,4 @@
     {% endblock %}
 </body>
  {% endblock %}   
-</html>
+</html>  #}

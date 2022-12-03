@@ -1,0 +1,11 @@
+table {
+    background-color: var(--couleur2) !important;
+}
+thead, tfoot {
+    background-color: rgb(33, 189, 189);
+}
+@media screen and (max-width: 700px) {
+    table {
+        font-size: 0.5rem;
+    }
+}

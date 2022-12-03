@@ -1,0 +1,237 @@
+:root {
+    --couleur1: rgb(40, 40, 40);
+    --couleur2: rgb(8, 248, 241);
+    --couleur3: rgb(220, 220, 220);
+    --hfShadow: 0 0 10px 6px var(--couleur1);
+}
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+body {
+    background-color: var(--couleur3);
+    background-attachment: fixed;
+    background-image: url("../images/fond2.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 16px;
+    color: white;
+    z-index: 0;
+}
+
+header {
+    background-color: var(--couleur1);
+    height: 15vh;
+    border-bottom: 0.5vh solid var(--couleur2);
+    box-shadow: var(--hfShadow);
+}
+nav {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 35% 13% 13% 13% 13% 13%;
+    grid-template-rows: 15vh;
+    margin: 0;
+    padding: 0;
+}
+nav p {
+    display: none;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+li {
+    list-style: none;
+}
+nav ul {
+    border-bottom: 0.5vh solid var(--couleur2);
+    border-top: 0.5vh solid rgb(8, 248, 241, .2);
+    box-shadow: var(--hfShadow);
+    padding: 0.5vh 0.5vw;
+    background-color: var(--couleur1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 8.75vh;
+}
+ul li {
+    margin: 0.5vh auto;
+    width: fit-content;
+}
+nav div, .navicone {
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 75vh;
+    width: 80%;
+    margin: 0 auto;
+    padding: 5vh 5vw;
+    background-color: rgba(40, 40, 40, 0.8);
+    text-align: center;
+}
+h1, h2 {
+    text-transform: uppercase;
+}
+h1 {
+    width: fit-content;
+    border: 1px solid var(--couleur2);
+    margin: 1vh auto;
+    padding: 1vh 1.5vw;
+    letter-spacing: 0.2rem;
+    text-shadow: 0px 0px 3px var(--couleur2);
+    font-size: 1.5rem !important;
+    position: relative;
+    top: 80%;
+    background: var(--couleur1);
+    z-index: 0;
+}
+footer {
+    background-color: var(--couleur1);
+    min-height: 10vh;
+    border-top: 0.5vh solid var(--couleur2);
+    box-shadow: var(--hfShadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1vh 2vw;
+    font-size: 0.8rem;
+}
+footer ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.liste-menu {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 5vh 5vh 5vh;
+    width: 100vw;
+    left: -37.5vw;
+    transform: scale(0);
+}
+.liste-compte {
+    border-left: 0.5vh solid var(--couleur2);
+    width: 40vw;
+    right: -2.5vw;
+    transform: scale(0);
+}
+.navimg {
+    height: 3.5vh;
+    width: 8vw;
+}
+.btn-info {
+    background-color: var(--couleur2) !important;
+    margin: 0.5vh auto;
+    color: black !important;
+}
+.btn:hover {
+    filter: brightness(90%) !important;
+}
+.card {
+    color: black !important;
+    margin: 1vh auto;
+}
+.visible {
+    transform: scale(1);
+    z-index: 1;
+}
+.hindex {
+    z-index: -1;
+}
+#logo {
+    display: flex;
+    justify-content: center;
+    margin: auto 1vw;
+}
+#logoimg {
+    height: 7vh;
+}
+#bouton_compte, #bouton_menu {
+    cursor: pointer;
+}
+#connexion {
+    color: lime;
+}
+#deconnexion {
+    color: red;
+}
+
+@media screen and (min-width: 700px){
+    footer {
+        flex-direction: row;
+    }
+    footer ul {
+        margin: 0;
+    }
+    nav ul {
+        top: 9.25vh;
+    }
+    .liste-menu {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 5vh 5vh;
+    }
+    .navimg {
+        height: 4.5vh;
+    }
+    #logoimg {
+        height: 10vh;
+    }
+}
+
+@media screen and (min-width: 992px){
+    nav p {
+        display: block;
+        color: white;
+        text-transform: uppercase;
+        margin: 0.75vh auto;
+    }
+    nav ul {
+        top: 12vh;
+        overflow: hidden;
+    }
+    a:hover {
+        color: var(--couleur2);
+    }
+    ul li:hover {
+        transform: scale(1.1);
+        color: var(--couleur2);
+    }
+    ul li:hover a{
+        color: var(--couleur2);
+        }
+    a:hover p{
+        transform: scale(1.1);
+        color: var(--couleur2);
+    }
+    .liste-menu {
+        display: flex;
+        flex-direction: row;
+        width: 99.2vw;
+    }
+    .liste-compte {
+        right: -2.4vw;
+        width: 20vw;
+    }
+    .navimg {
+        height: 5vh;
+        margin: 0;
+    }
+    #logoimg {
+        height: 13vh;
+    }
+}

@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block link %}
+{# {% block link %}
     <link rel="stylesheet" href="{{ asset('css/add_snow.css') }}">
-{% endblock %}
+{% endblock %} #}
 
 {% block title %}Modifier un snowboard{% endblock %}
 
@@ -90,10 +90,7 @@
             {{ form_row(formSnowboards.description) }}
         </section>
         <section>
-            <h2>Taille et stock</h2>
-            <div class="blockRowForm">
-                {{ form_row(formSnowboards.taille) }}
-            </div>
+            <h2>Stock</h2>
             <div class="blockRowForm">
                 {{ form_row(formSnowboards.stock) }}
             </div>

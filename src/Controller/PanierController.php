@@ -49,19 +49,19 @@ class PanierController extends AbstractController
         }
 
         // Si c'est un utilisateur connecté, on envoie à la vue le panier enrichi avec les informations + le total du panier
-        if($this->getUser()) {
+        // if($this->getUser()) {
             return $this->render('cart/index.html.twig', [
                 "items" => $panierData,
                 "total" => $total,
                 "quantiteTotal" => $quantiteTotal
             ]);
-        }
+        // }
         //sinon on le redirige vers la page de connexion
-        else {
-            $this->addFlash('creation_panier', "Vous devez vous connecter pour créer votre panier. Si vous n'avez pas de compte, vous pouvez le créer en cliquant sur le bouton \"Créer un compte\" ci-dessous");
+        // else {
+        //     $this->addFlash('creation_panier', "Vous devez vous connecter pour créer votre panier. Si vous n'avez pas de compte, vous pouvez le créer en cliquant sur le bouton \"Créer un compte\" ci-dessous");
 
-            return $this->redirectToRoute('app_login');
-        }
+        //     return $this->redirectToRoute('app_login');
+        // }
     }
 
     /**
