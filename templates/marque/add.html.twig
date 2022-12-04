@@ -4,9 +4,10 @@
 
 {% block main %}
     <h1>Ajouter une marque</h1>
-    <br>
+    <section>
     {{ form_start(formMarque) }}
         {{ form_row(formMarque.nom) }}
         <input type="submit" value="Enregistrer" class="btn btn-info btn-sm">
     {{ form_end(formMarque) }}
+    </section>
 {% endblock %}

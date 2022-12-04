@@ -1,19 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block link %}
-    <link rel="stylesheet" href="{{ asset('css/form_add_caract.css') }}">
-{% endblock %}
-
 {% block title %}Ajouter un type d'insert{% endblock %}
 
 {% block main %}
-    <div class="container">
-        <h1>Ajouter un type d'insert</h1>
-
+    <h1>Ajouter un type d'insert</h1>
+    <section>
         {{ form_start(formSnowinsert) }}
             {{ form_row(formSnowinsert.nom) }}
-            <input type="submit" value="Enregistrer" class="bouton">
+            <input type="submit" value="Enregistrer" class="btn btn-info btn-sm">
         {{ form_end(formSnowinsert) }}
-    </div>
-
+    </section>
 {% endblock %}

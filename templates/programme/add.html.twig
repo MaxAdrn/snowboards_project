@@ -4,8 +4,10 @@
 
 {% block main %}
     <h1>Ajouter un programme</h1>
+    <section>
     {{ form_start(formProgramme) }}
         {{ form_row(formProgramme.nom) }}
         <input type="submit" value="Enregistrer" class="btn btn-info btn-sm">
     {{ form_end(formProgramme) }}
+    </section>
 {% endblock %}

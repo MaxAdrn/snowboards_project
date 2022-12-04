@@ -4,10 +4,10 @@
     <link rel="stylesheet" href="{{ asset('css/table.css') }}">
 {% endblock %}
 
-{% block title %}New Commande{% endblock %}
+{% block title %}Commande{% endblock %}
 
 {% block main %}
-    <h1>Validation de la commande</h1>
+    <h1>Confirmation de la commande</h1>
     <p>Le récapitulatif de la commande vous sera envoyé sur votre boîte mail : <strong>{{ app.user.email }}</strong> </p>
     {{ form_start(formCommande) }}
 
@@ -16,11 +16,9 @@
         {{ form_row(formCommande.societe) }}
         {{ form_row(formCommande.adresseLiv) }}
         {{ form_row(formCommande.adresseFacturation) }}
-        <input type="submit" value="Enregistrer" class="bouton">
+        <input type="submit" value="Passer au paiement" class="btn btn-info btn-sm">
     {{ form_end(formCommande) }}
-
     <div>
-        
         <table class="table table-striped table-hover mt-5">
             <thead>
                 <tr>

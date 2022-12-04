@@ -5,33 +5,36 @@
 {% block title %}Freeride{% endblock %}
 
 {% block main %}
-    <a href="{{ path('recherche') }}" class="bouton">Recherche personnalisée</a>
-    <h1>Freeride</h1>
-    {% if snowboards|length > 0 %}
-    <div class="test">
-        {% for snowboard in snowboards %}
-            <div class="card">
-                <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" class="card-img-top" alt="{{ snowboard.imageName }}" style="width: 50%">
-                <div class="card-body">
-                    <h5 class="card-title">{{ snowboard.nom }}</h5>
-                </div>
-                <div style="color: black">
-                    <p>Marque : {{ snowboard.marque.nom }}</p>
-                    <p>Pour : {{ snowboard.genre.nom }}</p>
-                    <p>Programme : {{ snowboard.programme.nom }}</p>
-                    <p>Niveau : {{ snowboard.niveau.nom }}</p>
-                    <p>Cambre : {{ snowboard.cambre.nom }}</p>
-                    <p>Shape : {{ snowboard.shape.nom }}</p>
-                    <p>Insert : {{ snowboard.snowinsert.nom }}</p>
-                    <p>Prix : {{ snowboard.prix }} €/TTC</p>
-                </div>
-                <div class="card-body">
-                <a href="{{ path('snowboards_detail', {id: snowboard.id}) }}" class="bouton">Détail</a>
-                </div>
+    <section>
+        <a href="{{ path('recherche') }}" class="btn btn-info btn-sm">Recherche personnalisée</a>
+        <h1>Freeride</h1>
+        {% if snowboards|length > 0 %}
+            <div class="snow-index">
+                {% for snowboard in snowboards %}
+                    <div class="card text-center">
+                        <img src="{{ asset('images/snowboards/' ~ snowboard.imageName) }}" class="card-img-top w-50" alt="{{ snowboard.imageName }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ snowboard.nom }}</h5>
+                        </div>
+                        <div>
+                            <p>Marque : {{ snowboard.marque.nom }}</p>
+                            <p>Pour : {{ snowboard.genre.nom }}</p>
+                            <p>Programme : {{ snowboard.programme.nom }}</p>
+                            <p>Niveau : {{ snowboard.niveau.nom }}</p>
+                            <p>Cambre : {{ snowboard.cambre.nom }}</p>
+                            <p>Shape : {{ snowboard.shape.nom }}</p>
+                            <p>Insert : {{ snowboard.snowinsert.nom }}</p>
+                            <p>Prix : {{ snowboard.prix }} €/TTC</p>
+                        </div>
+                        <div class="card-body">
+                        <a href="{{ path('snowboards_detail', {id: snowboard.id}) }}" class="btn btn-info btn-sm">Détail</a>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
-    {% else %}
-        <p>Désolé ! Aucun produit n'est disponible pour le moment !</p>
-    {% endif %}
+        {% else %}
+            <p>Désolé ! Aucun produit n'est disponible pour le moment !</p>
+        {% endif %}
+        <a href="javascript:history.go(-1)" class="btn btn-info btn-sm">Retour</a>
+    </section>
 {% endblock %}

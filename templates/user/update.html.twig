@@ -7,11 +7,7 @@
 {% block title %}Modifier le profil{% endblock %}
 
 {% block main %}
-
-    <div class="container">
-
         <h1>Modifier le profil</h1>
-
         {{ form_start(formUser) }}
             {{ form_row( formUser.nom ) }}
             {{ form_row( formUser.prenom ) }}
@@ -19,10 +15,6 @@
             {{ form_row( formUser.adresse ) }}
             {{ form_row( formUser.codePostal ) }}
             {{ form_row( formUser.ville ) }}
-            {# {{ form_row( formUser.password ) }} #}
-        <input type="submit" value="Enregistrer" class="bouton">
+        <input type="submit" value="Enregistrer" class="btn btn-info btn-sm">
         {{ form_end(formUser) }}
-
-    </div>
-
 {% endblock %}

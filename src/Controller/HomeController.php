@@ -43,6 +43,24 @@ class HomeController extends AbstractController
     }
 
     /**
+     * @Route("/politique-confidentialite", name="politique_confidentialite")
+     */
+    public function confidentialite(): Response
+    {
+        
+        return $this->render('home/footer/confidentialite.html.twig');
+    }
+
+    /**
+     * @Route("/cookies", name="cookies")
+     */
+    public function cookies(): Response
+    {
+        
+        return $this->render('home/footer/cookies.html.twig');
+    }
+
+    /**
      * @Route("/cambres", name="cambres")
      */
     public function cambre(): Response

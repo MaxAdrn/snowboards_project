@@ -4,8 +4,10 @@
 
 {% block main %}
     <h1>Ajouter un niveau</h1>
+    <section>
     {{ form_start(formNiveau) }}
         {{ form_row(formNiveau.nom) }}
         <input type="submit" value="Enregistrer" class="btn btn-info btn-sm">
     {{ form_end(formNiveau) }}
+    </section>
 {% endblock %}
