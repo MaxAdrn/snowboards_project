@@ -9,38 +9,38 @@
 
 {% block main %}
     <h1>Profil personnel</h1>
-    <section class="user-infos">
+    <section class="user-infos mt-3">
         <article>
-            <h3>Nom</h3>
-            <p>{{ user.nom }}</p>
+            <h2>Nom</h2>
+            <p class="my-3">{{ user.nom }}</p>
         </article>
         <article>
-            <h3>Prénom</h3>
-            <p>{{ user.prenom }}</p>
+            <h2>Prénom</h2>
+            <p class="my-3">{{ user.prenom }}</p>
         </article>
         <article>
-            <h3>Email</h3>
-            <p>{{ user.email }}</p>
+            <h2>Email</h2>
+            <p class="my-3">{{ user.email }}</p>
         </article>
         <article>
-            <h3>Adresse</h3>
-            <p>{{ user.adresse }}</p>
+            <h2>Adresse</h2>
+            <p class="my-3">{{ user.adresse }}</p>
         </article>
         <article>
-            <h3>Code postal</h3>
-            <p>{{ user.codePostal }}</p>
+            <h2>CP</h2>
+            <p class="my-3">{{ user.codePostal }}</p>
         </article>
         <article>
-            <h3>Ville</h3>
-            <p>{{ user.ville }}</p>
+            <h2>Ville</h2>
+            <p class="my-3">{{ user.ville }}</p>
         </article>
         <article>
-            <h3>Créé le</h3>
-            <p>{{ user.createdAt|date("Y-m-d à H:i:s") }}</p>
+            <h2>Date de création</h2>
+            <p class="my-3">{{ user.createdAt|date("Y-m-d à H:i:s") }}</p>
         </article>
         <article>
-            <h3>Mis à jour le</h3>
-            <p>{% if user.updatedAt %}{{ user.updatedAt|date("Y-m-d à H:i:s") }}{% else %}-{% endif %}</p>
+            <h2>Dernère mise à jour</h2>
+            <p class="my-3">{% if user.updatedAt %}{{ user.updatedAt|date("Y-m-d à H:i:s") }}{% else %}-{% endif %}</p>
         </article>
     
     {% if app.user.id == user.id %}

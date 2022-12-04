@@ -7,7 +7,7 @@
         <div class="container">
             {% for message in app.flashes("email_envoyer") %}
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Nous avons bien reçu votre email. </strong>
+                    <strong>Nous avons bien reçu votre email.</strong>
                     <p>{{ message }}</p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -18,9 +18,7 @@
                 {{ form_row( formContact.prenom ) }}
                 {{ form_row( formContact.email ) }}
                 {{ form_row( formContact.message ) }}
-            <input type="submit" value="Envoyer" class="bouton">
+            <input type="submit" value="Envoyer" class="btn btn-info btn-sm">
             {{ form_end(formContact) }}
-
-        </div>
     </section>
 {% endblock %}

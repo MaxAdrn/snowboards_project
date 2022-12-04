@@ -92,13 +92,23 @@ h1 {
     letter-spacing: 0.2rem;
     text-shadow: 0px 0px 3px var(--couleur2);
     font-size: 1.5rem !important;
-    position: relative;
-    top: 80%;
     background: var(--couleur1);
     z-index: 0;
 }
 h2 {
+    font-size: 1.4rem;
     color: var(--couleur2);
+}
+h3 {
+    font-size: 1.3rem;
+}
+form {
+    margin: auto;
+    width: 100%;
+}
+label {
+    font-style: italic;
+    border-bottom: 1px solid var(--couleur2);
 }
 footer {
     background-color: var(--couleur1);
@@ -182,6 +192,9 @@ footer ul {
     nav ul {
         top: 9.25vh;
     }
+    form {
+        width: 75%;
+    }
     .liste-menu {
         display: grid;
         grid-template-columns: 25% 25% 25% 25%;
@@ -205,6 +218,9 @@ footer ul {
     nav ul {
         top: 12vh;
         overflow: hidden;
+    }
+    form {
+        width: 50%;
     }
     a:hover {
         color: var(--couleur2);

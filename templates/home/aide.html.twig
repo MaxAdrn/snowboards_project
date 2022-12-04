@@ -1,34 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{# {% block link %}
-    <link rel="stylesheet" href="{{ asset("css/home/home.css") }}">
-{% endblock %} #}
-{% block title %}
-    Aide
-{% endblock %}
+{% block title %}Aide{% endblock %}
 
 {% block main %}
     <h1>Aide</h1>
-
-    <section>
+    <section class="mt-3">
         <h2>Demande d'informations</h2>
         <p>
         Pour toute demande d'informations, vous pouvez nous contacter en cliquant sur le lien suivant. Nous mettrons tout en oeuvre pour vous apporter une réponse dans les plus bref délais.</br>
-        <a href="{{ path('contact') }}" class="bouton">Contactez nous</a>
+        <a href="{{ path('contact') }}" class="btn btn-info btn-sm">Contactez nous</a>
         </p>
     </section>
-    <section>
+    <section class="mt-3">
         <h2>Tout savoir sur les cambres</h2>
-        <a href="{{ path('cambres') }}" class="bouton">Voir les informations concernant les cambres</a>
+        <a href="{{ path('cambres') }}" class="btn btn-info btn-sm">Voir les informations concernant les cambres</a>
     </section>
-    <section>
-        <h2>Tout savoir sur les shape</h2>
-        <a href="" class="bouton">Voir les informations concernant les shapes</a>
+    <section class="mt-3">
+        <h2>Tout savoir sur les shapes</h2>
+        <a href="{{ path('shape') }}" class="btn btn-info btn-sm">Voir les informations concernant les shapes</a>
     </section>
-    <section>
+    <section class="mt-3">
         <h2>Tout savoir sur les inserts</h2>
-        <a href="" class="bouton">Voir les informations concernant les inserts</a>
+        <a href="" class="btn btn-info btn-sm">Voir les informations concernant les inserts</a>
     </section>
-
-
 {% endblock %}

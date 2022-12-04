@@ -51,4 +51,13 @@ class HomeController extends AbstractController
         return $this->render('home/cambre.html.twig');
     }
 
+    /**
+     * @Route("/shape", name="shape")
+     */
+    public function shape(): Response
+    {
+        
+        return $this->render('home/shape.html.twig');
+    }
+
 }
