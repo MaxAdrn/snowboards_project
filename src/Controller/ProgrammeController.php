@@ -28,7 +28,7 @@ class ProgrammeController extends AbstractController
     /**
      * @Route("/add", name="_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         $programme = new Programme;
         $formProgramme = $this->createForm(ProgrammeType::class, $programme);
@@ -39,8 +39,6 @@ class ProgrammeController extends AbstractController
             $em = $doctrine->getManager();
             $em->persist($programme);
             $em->flush();
-
-            // $this->addFlash('annonce_succes', "Votre annonce a bien été ajoutée !");
 
             return $this->redirectToRoute('snowboards_add');
         }

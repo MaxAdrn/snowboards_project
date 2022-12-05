@@ -28,7 +28,7 @@ class SnowinsertController extends AbstractController
     /**
      * @Route("/add", name="_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         $snowinsert = new Snowinsert;
         $formSnowinsert = $this->createForm(SnowinsertType::class, $snowinsert);

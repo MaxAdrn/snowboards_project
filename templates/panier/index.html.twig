@@ -22,26 +22,26 @@
                 </tr>
             </thead>
             <tbody>
-                {% for snow in items %}
+                {% for snow in panierData %}
                     <tr>
                         <td>{{ snow.snowboards.nom }}</td>
                         <td>{{ snow.snowboards.prix|number_format(2, ',', ' ') ~ ' €' }}</td>
                         <td>{{ snow.quantite }} (Quantité max : {{ snow.snowboards.stock }})</td>
                         <td>{{ (snow.snowboards.prix * snow.quantite)|number_format(2, ',', ' ') }} €</td>
                         <td>
-                            <a href="{{ path('cart_add', {id: snow.snowboards.id}) }}" class="btn btn-success btn-sm">
+                            <a href="{{ path('panier_add', {id: snow.snowboards.id}) }}" class="btn btn-success btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                     <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                                 </svg>
                             </a>
-                            <a href="{{ path('cart_remove', {id: snow.snowboards.id}) }}" class="btn btn-warning btn-sm">
+                            <a href="{{ path('panier_retirer', {id: snow.snowboards.id}) }}" class="btn btn-warning btn-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
                                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
                                 </svg>
                             </a>
-                            <a href="{{ path('cart_delete', {id: snow.snowboards.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Suppimer ce snowboard du panier ?');">
+                            <a href="{{ path('panier_supprimer', {id: snow.snowboards.id}) }}" class="btn btn-danger btn-sm" onclick="return confirm('Suppimer ce snowboard du panier ?');">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -61,60 +61,7 @@
                     </tr>
                 </tfoot>
         </table>
-        <a href={{ path('commande_new', {items: items}) }} class="btn btn-info btn-sm">Commander</a>
+        <a href={{ path('commande_new') }} class="btn btn-info btn-sm">Commander</a>
         <a href={{ path('snowboards_index') }} class="btn btn-info btn-sm">Continuer les achats</a>
     </div>
 {% endblock %}
-{# {% block main %}
-{{dump(total)}}
-    <div class="container mt-2">
-        <section>
-            <h1>Votre panier</h1>
-        </section>
-        <table class="table mt-5" style="color: white">
-            <thead>
-                <tr>
-                    <th scope="col">Produit</th>
-                    <th scope="col">Taille</th>
-                    <th scope="col">Prix TTC</th>
-                    <th scope="col">Quantité</th>
-                    <th scope="col">Montant</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for snow in panierData %}
-                    <tr>
-                        <td>{{ snow.snowboards.nom }}</td>
-                        <td>{{ snow.snowboards.taille }}</td>
-                        <td>{{ snow.snowboards.prix|number_format(2, ',', ' ') ~ ' €' }}</td>
-                        <td>{{ snow.quantite }} (Quantité max : {{ snow.snowboards.stock }})</td>
-                        <td>{{ (snow.snowboards.prix * snow.quantite)|number_format(2, ',', ' ') }} €</td>
-                        <td>
-                            <a href="{{ path('cart_add', {id: snow.snowboards.id}) }}" class="btn btn-success">
-                                <i class="bi bi-cart-plus">+</i>
-                            </a>
-                            <a href="{{ path('cart_remove', {id: snow.snowboards.id}) }}" class="btn btn-warning">
-                                <i class="bi bi-cart-dash">-</i>
-                            </a>
-                            <a href="{{ path('cart_delete', {id: snow.snowboards.id}) }}" class="btn btn-danger" onclick="return confirm('Suppimer cet élément du panier ?');">
-                                <i class="bi bi-cart-x"></i>
-                            </a>
-                        </td>
-                    </tr>
-                {% else %}
-                    <tr>
-                        <td colspan="6">Votre panier est vide</td>
-                    </tr>
-                {% endfor %}
-                    <tr>
-                        <td colspan="6">Montant total : {{ total|number_format(2, ',', ' ') ~ ' €' }}</td>
-                    </tr>
-            </tbody>
-        </table>
-        
-
-        <a href={{ path('commande_new', {panierData: panierData}) }} class="bouton">Valider le panier</a>
-        <a href={{ path('snowboards_index') }} class="bouton">Continuer les achats</a>
-    </div>
-{% endblock %} #}

@@ -28,7 +28,7 @@ class NiveauController extends AbstractController
     /**
      * @Route("/add", name="_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         $niveau = new Niveau;
         $formNiveau = $this->createForm(NiveauType::class, $niveau);

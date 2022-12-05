@@ -28,7 +28,7 @@ class CambreController extends AbstractController
     /**
      * @Route("/add", name="_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         $cambre = new Cambre;
         $formCambre = $this->createForm(CambreType::class, $cambre);

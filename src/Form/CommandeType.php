@@ -17,27 +17,47 @@ class CommandeType extends AbstractType
     {
         $builder
             ->add('adresseLiv', TextType::class, [
+                'label' => 'Adresse de livraison',
                 'attr' => [
-                    'label' => 'Adresse de livraison',
                     'placeholder' => 'Adresse de livraison',
                     ]
             ])
-            ->add('adresseFacturation')
-            ->add('nom')
-            ->add('prenom')
-            ->add('societe')
-            ->add('agreeTerms', CheckboxType::class, [
+            ->add('adresseFacturation', TextType::class, [
+                'label' => 'Adresse de facturation',
+                'attr' => [
+                    'placeholder' => 'Adresse de facturation',
+                    ]
+            ])
+            ->add('nom', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Nom',
+                    ]
+            ])
+            ->add('prenom', TextType::class, [
+                'label' => 'Prénom',
+                'attr' => [
+                    'placeholder' => 'Prénom',
+                    ]
+            ])
+            ->add('societe', TextType::class, [
+                'label' => 'Société (facultatif)',
+                'required' => false,
+                'attr' => [
+                    'placeholder' => 'Société (facultatif)',
+                    ]
+            ])
+            ->add('cgv', CheckboxType::class, [
                 'mapped' => false,
+                'label' => 'Accepter les CGV',
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter les CGV.',
                     ]),
                 ],
             ])
             // ->add('montant')
             // ->add('detailCommande')
             // ->add('createdAt')
-            // ->add('user', EntityType::cl)
         ;
     }
 

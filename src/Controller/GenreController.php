@@ -28,7 +28,7 @@ class GenreController extends AbstractController
     /**
      * @Route("/genre", name="_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         $genre = new Genre;
         $formGenre = $this->createForm(GenreType::class, $genre);

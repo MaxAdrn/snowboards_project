@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
 use App\Entity\Snowboards;
 use App\Entity\User;
 use App\Form\SnowboardsType;
@@ -55,9 +56,38 @@ class AdminController extends AbstractController
         $em->remove($user);
         $em->flush();
 
-        // $this->addFlash("user_delete_ok", "L'utilisateur ".$user->getName()." a bien été supprimé");
-
         return $this->redirectToRoute('admin_user');
+    }
+
+    /**
+     * @Route("/commandes", name="_commandes")
+     */
+    public function adminCommandes(ManagerRegistry $doctrine): Response
+    {
+        $commandes = $doctrine->getRepository(Commande::class)->findAll();
+
+        return $this->render('admin/commandes.html.twig', [
+            'commandes' => $commandes,
+        ]);
+    }
+
+    /**
+     * @Route("/commande/delete/{id}", name="_commande_delete")
+     */
+    public function deleteCommande($id, ManagerRegistry $doctrine): Response
+    {
+        $commande = $doctrine->getRepository(Commande::class)->find($id);
+
+        if(!$commande)
+        {
+            throw new \Exception("Aucun snowboard pour l'id : $id");
+        }
+
+        $em = $doctrine->getManager();
+        $em->remove($commande);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_commandes');
     }
 
     /**
@@ -111,8 +141,6 @@ class AdminController extends AbstractController
         $em = $doctrine->getManager();
         $em->remove($snowboards);
         $em->flush();
-
-        // $this->addFlash("user_delete_ok", "L'utilisateur ".$user->getName()." a bien été supprimé");
 
         return $this->redirectToRoute('admin_snowboards');
     }

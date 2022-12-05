@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/snowboards", name="snowboards")
@@ -19,7 +20,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/index", name="_index")
      */
-    public function index( SnowboardsRepository $snow)
+    public function index( SnowboardsRepository $snow): Response
     {
         // je récupère tout les snowboards
         $snowboards = $snow->findAll();
@@ -33,7 +34,7 @@ class SnowboardsController extends AbstractController
      * @Route("/add", name="_add")
      * @IsGranted("ROLE_ADMIN")
      */
-    public function add(Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         // création nouvel objet snowboards
         $snowboards = new Snowboards;
@@ -71,7 +72,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/detail/{id}", name="_detail")
      */
-    public function show($id, ManagerRegistry $doctrine)
+    public function show($id, ManagerRegistry $doctrine): Response
     {
         $snowboard = $doctrine->getRepository(Snowboards::class)->find($id);
 
@@ -83,7 +84,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/splitboards", name="_splitboards")
      */
-    public function splitboards( SnowboardsRepository $snowRepo)
+    public function splitboards( SnowboardsRepository $snowRepo): Response
     {
         $programme = 1;
         $snowboards = $snowRepo->findByProgramme($programme);
@@ -96,7 +97,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/polyvalent-freeride", name="_poly_freeride")
      */
-    public function polyvalentFreeride( SnowboardsRepository $snowRepo)
+    public function polyvalentFreeride( SnowboardsRepository $snowRepo): Response
     {
         $programme = 2;
         $snowboards = $snowRepo->findByProgramme($programme);
@@ -109,7 +110,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/freeride", name="_freeride")
      */
-    public function freeride( SnowboardsRepository $snowRepo)
+    public function freeride( SnowboardsRepository $snowRepo): Response
     {
         $programme = 3;
         $snowboards = $snowRepo->findByProgramme($programme);
@@ -122,7 +123,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/polyvalent-freestyle", name="_poly_freestyle")
      */
-    public function polyvalentFreestyle( SnowboardsRepository $snowRepo)
+    public function polyvalentFreestyle( SnowboardsRepository $snowRepo): Response
     {
         $programme = 4;
         $snowboards = $snowRepo->findByProgramme($programme);
@@ -135,7 +136,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/freestyle", name="_freestyle")
      */
-    public function freestyle( SnowboardsRepository $snowRepo)
+    public function freestyle( SnowboardsRepository $snowRepo): Response
     {
         $programme = 5;
         $snowboards = $snowRepo->findByProgramme($programme);
@@ -148,7 +149,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/carving", name="_carving")
      */
-    public function carving( SnowboardsRepository $snowRepo)
+    public function carving( SnowboardsRepository $snowRepo): Response
     {
         $programme = 6;
         $snowboards = $snowRepo->findByProgramme($programme);
@@ -161,7 +162,7 @@ class SnowboardsController extends AbstractController
     /**
      * @Route("/poudreuse", name="_poudreuse")
      */
-    public function poudreuse( SnowboardsRepository $snowRepo)
+    public function poudreuse( SnowboardsRepository $snowRepo): Response
     {
         $programme = 7;
         $snowboards = $snowRepo->findByProgramme($programme);

@@ -27,26 +27,26 @@ class PaiementController extends AbstractController
     /**
      * @Route("/paiement/checkout", name="checkout")
      */
-    public function checkout($stripeSK, SessionInterface $session, ManagerRegistry $doctrine)
+    public function checkout($stripeSK, SessionInterface $session, ManagerRegistry $doctrine): Response
     {
-        #On met en paramètre la clé API (défini dans le .env et configuré dans le ficher services.yaml)
+        // On met en paramètre la clé API (défini dans le .env et configuré dans le ficher services.yaml)
         Stripe::setApiKey($stripeSK);
 
-        #On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
+        // On récupere la session 'panier' si elle existe - sinon elle est créée avec un tableau vide
         $panier = $session->get('panier', []);
-        #Variable tableau
+        // Variable tableau
         $panierData = [];
 
         foreach($panier as $id => $quantity)
         {
-            #On enrichi le tableau avec l'objet (qui contient toutes les informations du produit) + la quantité
+            // On enrichi le tableau avec l'objet (qui contient toutes les informations du produit) + la quantité
             $panierData[] = [
                 "product" => $doctrine->getRepository(Snowboards::class)->find($id),
                 "quantity" => $quantity
             ];
         }
 
-        //On construit le line_items pour envoyer ce format a Stripe, afin qu'il puisse afficher correctement dans le module de paiement Stripe.
+        // On construit le line_items pour envoyer ce format a Stripe, afin qu'il puisse afficher correctement dans le module de paiement Stripe.
         foreach($panierData as $id => $value)
         {
             $line_items[] = [
@@ -63,7 +63,7 @@ class PaiementController extends AbstractController
 
         $session = Session::create([
             'line_items' => [
-                $line_items //On place le tableau construit juste au-dessus, pour les line_items.
+                $line_items // On place le tableau construit juste au-dessus, pour les line_items.
             ],
               'mode' => 'payment',
               'success_url' => $this->generateUrl('success_url', [], UrlGeneratorInterface::ABSOLUTE_URL),
@@ -76,9 +76,9 @@ class PaiementController extends AbstractController
     /**
      * @Route("/paiement/success", name="success_url")
      */
-    public function successUrl()
+    public function successUrl(): Response
     {
-        #Après le paiement success : libre a vous de vider les sessions et donc le panier.
+        // Après le paiement success : libre a vous de vider les sessions et donc le panier.
 
         return $this->render('paiement/success.html.twig');
     }
@@ -86,7 +86,7 @@ class PaiementController extends AbstractController
     /**
      * @Route("/paiement/cancel", name="cancel_url")
      */
-    public function cancelUrl()
+    public function cancelUrl(): Response
     {
         return $this->render('paiement/cancel.html.twig');
     }

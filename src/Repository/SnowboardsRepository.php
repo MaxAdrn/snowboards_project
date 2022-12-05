@@ -59,7 +59,7 @@ class SnowboardsRepository extends ServiceEntityRepository
          ->setParameter('niveau', $criteres->getNiveau()->getId())
          ->andwhere('s.snowinsert = :snowinsert')
          ->setParameter('snowinsert', $criteres->getSnowinsert()->getId())
-         ->groupBy('s.nom')
+         ->orderBy('s.prix', 'ASC')
          ->getQuery()
          ->getResult()
       ;
@@ -81,7 +81,8 @@ class SnowboardsRepository extends ServiceEntityRepository
         $query = $entityManager->createQuery(
             'SELECT s
             FROM App\Entity\Snowboards s
-            WHERE s.programme = :programme'
+            WHERE s.programme = :programme
+            ORDER BY s.prix ASC'
         )->setParameter('programme', $programme);
 
         return $query->getResult();

@@ -19,7 +19,7 @@ class UserController extends AbstractController
     /**
      * @Route("/detail/{id}", name="_detail")
      */
-    public function detail($id, ManagerRegistry $doctrine)
+    public function detail($id, ManagerRegistry $doctrine): Response
     {
         $user = $doctrine->getRepository(User::class)->find($id);
         $commandes = $doctrine->getRepository(Commande::class)->findAll();
@@ -33,7 +33,7 @@ class UserController extends AbstractController
     /**
      * @Route("/add", name="_add")
      */
-    public function add(ManagerRegistry $doctrine, Request $request)
+    public function add(ManagerRegistry $doctrine, Request $request): Response
     {
         $user = new User;
         $formUser = $this->createForm(UserType::class, $user);
@@ -57,7 +57,7 @@ class UserController extends AbstractController
     /**
      * @Route("/update/{id}", name="_update")
      */
-    public function update($id, ManagerRegistry $doctrine, Request $request)
+    public function update($id, ManagerRegistry $doctrine, Request $request): Response
     {
         $user = $doctrine->getRepository(User::class)->find($id);
         $formUser = $this->createForm(UserType::class, $user);
@@ -77,8 +77,6 @@ class UserController extends AbstractController
             'user' => $user
         ]);
     }
-
-
 
     // /**
     //  * @Route("/role", name="_role")

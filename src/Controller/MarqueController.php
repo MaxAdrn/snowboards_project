@@ -28,7 +28,7 @@ class MarqueController extends AbstractController
     /**
      * @Route("/add", name="_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         $marque = new Marque;
         $formMarque = $this->createForm(MarqueType::class, $marque);

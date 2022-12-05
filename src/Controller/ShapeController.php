@@ -18,7 +18,7 @@ class ShapeController extends AbstractController
     /**
      * @Route("/index", name="_index")
      */
-    public function index()
+    public function index(): Response
     {
         return $this->render('shape/index.html.twig', [
             'controller_name' => 'ShapeController',
@@ -28,7 +28,7 @@ class ShapeController extends AbstractController
     /**
      * @Route("/add", name="_add")
      */
-    public function add(Request $request, ManagerRegistry $doctrine)
+    public function add(Request $request, ManagerRegistry $doctrine): Response
     {
         $shape = new Shape;
         $formShape = $this->createForm(ShapeType::class, $shape);

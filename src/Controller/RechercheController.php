@@ -6,6 +6,7 @@ use App\Form\RechercheType;
 use App\Repository\SnowboardsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class RechercheController extends AbstractController
@@ -13,7 +14,7 @@ class RechercheController extends AbstractController
     /**
      * @Route("/recherche-personnalisee", name="recherche")
      */
-    public function recherche(Request $request, SnowboardsRepository $snowboardsRepo)
+    public function recherche(Request $request, SnowboardsRepository $snowboardsRepo): Response
     {
         //je crée la variable vide pour l'extraire de ma condition
         $snows = [];

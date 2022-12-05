@@ -187,7 +187,17 @@ footer ul li{
 #deconnexion {
     color: red;
 }
-
+.modal-body, .modal-title {
+    color: black;
+}
+.form-check {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.form-check-input[type=checkbox] {
+    margin: auto;
+    margin-top: 1vh;
+}
 @media screen and (min-width: 700px){
     footer {
         flex-direction: row;

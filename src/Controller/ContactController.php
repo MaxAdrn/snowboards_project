@@ -19,7 +19,7 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(ManagerRegistry $doctrine, Request $request, MailerInterface $mailer)
+    public function index(ManagerRegistry $doctrine, Request $request, MailerInterface $mailer): Response
     {
         $contact = new Contact;
         $contact->setCreatedAt(new DateTime());

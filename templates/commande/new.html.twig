@@ -8,17 +8,8 @@
 
 {% block main %}
     <h1>Confirmation de la commande</h1>
-    <p>Le récapitulatif de la commande vous sera envoyé sur votre boîte mail : <strong>{{ app.user.email }}</strong> </p>
-    {{ form_start(formCommande) }}
-
-        {{ form_row(formCommande.nom) }}
-        {{ form_row(formCommande.prenom) }}
-        {{ form_row(formCommande.societe) }}
-        {{ form_row(formCommande.adresseLiv) }}
-        {{ form_row(formCommande.adresseFacturation) }}
-        <input type="submit" value="Passer au paiement" class="btn btn-info btn-sm">
-    {{ form_end(formCommande) }}
-    <div>
+    <section>
+        <h2 class="mt-3">Récapitulatif de la commande</h2>
         <table class="table table-striped table-hover mt-5">
             <thead>
                 <tr>
@@ -30,12 +21,12 @@
             </thead>
             <tbody>
 
-                 {% for element in panierData %}
+                 {% for snow in panierData %}
                     <tr>
-                        <td>{{ element.snowboards.nom }}</td>
-                        <td>{{ element.snowboards.prix|number_format(2, ',', ' ') }} €</td>
-                        <td>{{ element.quantite }}</td>
-                        <td>{{ (element.snowboards.prix * element.quantite)|number_format(2, ',', ' ') }} €</td>
+                        <td>{{ snow.snowboards.nom }}</td>
+                        <td>{{ snow.snowboards.prix|number_format(2, ',', ' ') }} €</td>
+                        <td>{{ snow.quantite }}</td>
+                        <td>{{ (snow.snowboards.prix * snow.quantite)|number_format(2, ',', ' ') }} €</td>
                     </tr>
                 {% else %}
                     <tr>
@@ -49,10 +40,119 @@
                     </tr>
                 </tfoot>
         </table>
-        <a href="{{ path('cart_index') }}" class="btn btn-info btn-sm">Retour au panier</a>
-        <form action="{{ path('checkout') }}" method="POST">
-            <button type="submit" class="btn btn-primary mt-3 mb-3 w-50">Payer {{ total|number_format(2, ',', ' ') }} €</button>
-        </form>
-    </div>
+        <a href="{{ path('panier_index') }}" class="btn btn-info btn-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+            Retour au panier
+        </a>
+    </section>
+    <section>
+    <h2 class="mt-3">Validation et règlement de la commande</h2>
+        <p>Le récapitulatif de la commande vous sera envoyé sur votre boîte mail :</p>
+        <p><strong>{{ app.user.email }}</strong></p>
+        {{ form_start(formCommande) }}
+
+            {{ form_row(formCommande.nom) }}
+            {{ form_row(formCommande.prenom) }}
+            {{ form_row(formCommande.societe) }}
+            {{ form_row(formCommande.adresseLiv) }}
+            {{ form_row(formCommande.adresseFacturation) }}
+            <div>
+                {{ form_row(formCommande.cgv) }}
+                <button type="button" class="btn btn-primary btn-sm my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Voir les CGV
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Conditions générales de vente</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Les présentes conditions générales régissent l’utilisation de ce site https://www.snowboards-area.fr/</p>
+                            <p>Ce site appartient et est géré par snowboards area sarl</p>
+                            <p>En utilisant ce site, vous indiquez que vous avez lu et compris les conditions d’utilisation et que vous acceptez de
+                                les respecter en tout temps.</p>
+                            <p>Type de site : e-commerce</p>
+                            <h2>Propriété intellectuelle</h2>
+                            <p>Tout contenu publié et mis à disposition sur ce site est la propriété de snowboards area sarl et de ses créateurs.
+                                Cela comprend, mais n’est pas limité aux images, textes, logos, documents, fichiers téléchargeables et tout ce qui
+                                contribue à la composition de ce site.</p>
+                            <h2>Compte</h2>
+                            <p>Lorsque vous créez un compte sur notre site, vous acceptez ce qui suit :</p>
+                            <p>- que vous êtes seul responsable de votre compte et de la sécurité et la confidentialité de votre compte, y compris
+                                les
+                                mots de passe ou les renseignements de nature délicate joints à ce compte</p>
+                            <p>- que tous les renseignements personnels que vous nous fournissez par l’entremise de votre compte sont à jour, exacts
+                                et véridiques et que vous mettrez à jour vos renseignements personnels s’ils changent.</p>
+                            <p>Nous nous réservons le droit de suspendre ou de résilier votre compte si vous utilisez notre site illégalement ou si
+                                vous violez les conditions d’utilisation acceptable.</p>
+                            <h2>Ventes des biens et services</h2>
+                            <p>Ce document régit la vente des biens mis à disposition sur notre site.</p>
+                            <p>Les biens que nous offrons comprennent :</p>
+                            <p>Planches de snowboard</p>
+                            <p>Les biens liés à ce document sont les biens qui sont affichés sur notre site au moment où vous y accédez. Cela
+                                comprend tous les produits énumérés comme étant en rupture de stock. Toutes les informations, descriptions ou images
+                                que nous fournissons sur nos biens sont décrites et présentées avec la plus grande précision possible. Cependant,
+                                nous ne sommes pas légalement &nbsp;tenus par ces informations, descriptions ou images car nous ne pouvons pas
+                                garantir l’exactitude de chaque produit ou service que nous fournissons. Vous acceptez d’acheter ces biens à vos
+                                propres risques.</p>
+                            <h2>Paiements</h2>
+                            <p>Nous acceptons les modes de paiement suivants sur ce site : </p>
+                            <p>Carte bancaire</p>
+                            <p>Lorsque vous nous fournissez vos renseignements de paiement, vous nous confirmez que vous avez autorisé l’utilisation
+                                et l’accès à l’instrument de paiement que vous avez choisi d’utiliser. En nous fournissant vos détails de paiement,
+                                vous confirmez que vous nous autorisez à facturer le montant dû à cet instrument de paiement.</p>
+                            <p>Si nous estimons que votre paiement a violé une loi ou l’une de nos conditions d’utilisation, nous nous réservons le
+                                droit d’annuler votre transaction.</p>
+                            <h2>Transport et livraisons</h2>
+                            <p>Lorsque vous effectuez un achat sur notre site, vous acceptez et reconnaissez de fournir un email valide et une
+                                adresse d’expédition pour la commande. Nous nous réservons le droit de modifier, rejeter ou annuler votre commande
+                                chaque fois que cela devient nécessaire. Si nous annulons votre commande et avons déjà traité votre paiement, nous
+                                vous donnerons un remboursement équivalent au montant que vous avez payé. Vous convenez qu’il vous incombe de
+                                surveiller votre mode de paiement. Bien que nous visions à vous fournir une estimation précise des délais et des
+                                coûts d’expédition, ceux-ci peuvent varier en raison de circonstances imprévues.</p>
+                            <h2>Limitation des résponsabilités</h2>
+                            <p>snowboards area sarl ou l’un de ses employés sera tenu responsable de tout problème découlant de ce site. Néanmoins,
+                                snowboards area sarl et ses employés ne seront pas tenus responsables de tout problème découlant de toute
+                                utilisation irrégulière de ce site.</p>
+                            <h2>Indemnités</h2>
+                            <p>En tant qu’utilisateur, vous indemnisez par les présentes snowboards area sarl de toute responsabilité, de tout coût,
+                                de toute cause d’action, de tout dommage ou de toute dépense découlant de votre utilisation de ce site ou de votre
+                                violation de l’une des dispositions énoncées dans le présent document.</p>
+                            <h2>Lois applicables</h2>
+                            <p>Ce document est soumis aux lois applicables en France et vise à se conformer à ses règles et règlements nécessaires.
+                                Cela inclut la réglementation à l’échelle de l’UE énoncée dans le RGPD.</p>
+                            <h2>Divisibilité</h2>
+                            <p>Si, à tout moment, l’une des dispositions énoncées dans le présent document est jugée incompatible ou invalide en
+                                vertu des lois applicables, ces dispositions seront considérées comme nulles et seront retirées du présent document.
+                                Toutes les autres dispositions ne seront pas touchées par les lois et le reste du document sera toujours considéré
+                                comme valide.</p>
+                            <h2>Modifications</h2>
+                            <p>Ces conditions générales peuvent être modifiées de temps à autre afin de maintenir le respect de la loi et de
+                                refléter tout changement à la façon dont nous gérons notre site et la façon dont nous nous attendons à ce que les
+                                utilisateurs se comportent sur notre site. Nous recommandons à nos utilisateurs de vérifier ces conditions générales
+                                de temps à autre pour s’assurer qu’ils sont informés de toute mise à jour. Au besoin, nous informerons les
+                                utilisateurs par courriel des changements apportés à ces conditions ou nous afficherons un avis sur notre site.</p>
+                            <h2>Contact</h2>
+                            <p>Veuillez communiquer avec nous si vous avez des questions ou des préoccupations. Nos coordonnées sont les suivantes :</p>
+                            <p>00 00 00 00 00</p>
+                            <p>admin@snowboards-area.fr</p>
+                            <p>0 route de la montagne</p>
+                            <h2>Date d'entrée en vigueur</h2>
+                            <p>Le 26 novembre 2022.</p>
+                            <p>© 2002-2022, DocumentsLégaux™ (Sequiter Inc.)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" value="Valider la commande et régler {{ total|number_format(2, ',', ' ') }} €" class="btn btn-info btn-sm">
+        {{ form_end(formCommande) }}
 
 {% endblock %}
